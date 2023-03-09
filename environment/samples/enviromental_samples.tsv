@@ -1,6 +1,6 @@
 project_name	publication_year	publication_doi	site_name	latitude	longitude	geo_loc_name	study_primary_focus	sequence_name	depth	temp	pH	salinity	NO3-	PO43-	SO42-	Ca2+	Mg2+	sample_name	feature	material	sampling_date	archive	archive_project	archive_accession
 Ahmed 2018	2018	10.1016/j.quascirev.2017.11.037	Hässeldala Port	56.16	15.01	Sweden	ecology/ industry	Sediment core #7.4	435									HA1.1	lake	lake sediment	2015	ENA	PRJNA378719	SRS2040659
-Cristman 2020	2020	10.1038/s41598-020-64904-6	offshore Texas	29	94	USA	ecology		NA									B9 Reservoir	oil reservoir	filtered produced water from oil	2016	SRA	PRJNA578106	SRS5536771
+Cristmann 2020	2020	10.1038/s41598-020-64904-6	offshore Texas	29	94	USA	ecology		NA									B9 Reservoir	oil reservoir	filtered produced water from oil	2016	SRA	PRJNA578106	SRS5536771
 Cristman 2020	2020	10.1038/s41598-020-64904-6	offshore Texas	29	94	USA	ecology		NA									B7 Reservoir	oil reservoir	filtered produced water from oil	2016	SRA	PRJNA578106	SRS5536770
 Cristman 2020	2020	10.1038/s41598-020-64904-6	offshore Texas	29	94	USA	ecology		NA									B6 Reservoir	oil reservoir	filtered produced water from oil	2016	SRA	PRJNA578106	SRS5536769
 Cristman 2020	2020	10.1038/s41598-020-64904-6	offshore Texas	29	94	USA	ecology		NA									A2 Reservoir	oil reservoir	filtered produced water from oil	2016	SRA	PRJNA578106	SRS5536768
