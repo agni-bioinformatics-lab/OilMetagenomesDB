@@ -15,7 +15,7 @@ with open('crude_oil_samples.tsv', 'r') as tsvfile:
             "longitude": float(row["longitude"].replace(",", ".")) if isinstance(row["longitude"], str) and row["longitude"].replace(".", "", 1).isdigit() else None,
             "geo_loc_name": str(row["geo_loc_name"]),
             "study_primary_focus": str(row["study_primary_focus"]),
-            "sequence_name": None if row["sequence_name"] == "NA" else str(row["sequence_name"]) if row["sequence_name"] != "" else raise ValueError("Empty sequence_name")
+            "sequence_name": None if row["sequence_name"] == "NA" else str(row["sequence_name"]) if row["sequence_name"] != "" else raise ValueError("Empty sequence_name"),
             "depth": float(row["depth"].replace(",", ".")) if isinstance(row["depth"], str) and row["depth"].replace(".", "", 1).isdigit() else None,
             "sample_name": str(row["sample_name"]),
             "sample_age": int(row["sample_age"]) if row["sample_age"] != "NA" else None,
