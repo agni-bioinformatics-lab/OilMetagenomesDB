@@ -3,16 +3,16 @@ project_name	publication_year	publication_doi	site_name	latitude	longitude	geo_l
 Gao2016	2016	10.1038/srep20174	HuaBeiBa19	54.738762	55.972054	China	ecological	core_1	6557	B9 Reservoir	7	10.1038/ng.2906	formation brine	water and oil	2015	SRA	PRJNA438985	SRS473742
 Gao2016	2016	1234	HuaBeiBa19	54.738762	55.972054	China	ecological	core_1	6557	B9 Reservoir	7	10.1038/ng.2906	formation brine	water and oil	2015	SRA	PRJNA438985	SRS473742
 Gao2016	2016	10.1038/srep20174	1234	54.738762	55.972054	China	ecological	core_1	6557	B9 Reservoir	7	10.1038/ng.2906	formation brine	water and oil	2015	SRA	PRJNA438985	SRS473742
+Gao2016	2016	NA	HuaBeiBa19	54.738762	55.972054	China	ecological	core_1	6557	B9 Reservoir	7	10.1038/ng.2906	formation brine	water and oil	2015	SRA	PRJNA438985	SRS473742
 Gao2016	2016	10.1038/srep20174	HuaBeiBa19	54.738762	55.972054	China	ecological	core_1	6557	B9 Reservoir	7	10.1038/ng.2906	formation brine	water and oil	2015	SRA	PRJNA438985	SRS473742
-Gao2016	2016	10.1038/srep20174	HuaBeiBa19	54.738762	55.972054	China	ecological	core_1	6557	B9 Reservoir	7	10.1038/ng.2906	formation brine	water and oil	2015	SRA	PRJNA438985	SRS473742
-Gao2016	2016	10.1038/srep20174	HuaBeiBa19	54.738762	55.972054	1234	ecological	core_1	6557	B9 Reservoir	7	10.1038/ng.2906	formation brine	water and oil	2015	SRA	PRJNA438985	SRS473742
+Gao2016	2016	NaN	HuaBeiBa19	54.738762	55.972054	1234	ecological	core_1	6557	B9 Reservoir	7	10.1038/ng.2906	formation brine	water and oil	2015	SRA	PRJNA438985	SRS473742
 Gao2016	2016	10.1038/srep20174	HuaBeiBa19	54.738762	55.972054	China	1234	core_1	6557	B9 Reservoir	7	10.1038/ng.2906	formation brine	water and oil	2015	SRA	PRJNA438985	SRS473742
 Gao2016	2016	10.1038/srep20174	HuaBeiBa19	54.738762	55.972054	China	ecological	1234	6557	B9 Reservoir	7	10.1038/ng.2906	formation brine	water and oil	2015	SRA	PRJNA438985	SRS473742
 Gao2016	2016	10.1038/srep20174	HuaBeiBa19	54.738762	55.972054	China	ecological	core_1	6557	B9 Reservoir	7	10.1038/ng.2906	formation brine	water and oil	2015	SRA	PRJNA438985	SRS473742
-Gao2016	2016	10.1038/srep20174	HuaBeiBa19	54.738762	55.972054	China	ecological	core_1	6557	1234	7	10.1038/ng.2906	formation brine	water and oil	2015	SRA	PRJNA438985	SRS473742
+Gao2016	2016	None	HuaBeiBa19	54.738762	55.972054	China	ecological	core_1	6557	1234	7	10.1038/ng.2906	formation brine	water and oil	2015	SRA	PRJNA438985	SRS473742
 Gao2016	2016	10.1038/srep20174	HuaBeiBa19	54.738762	55.972054	China	ecological	core_1	6557	B9 Reservoir	7	10.1038/ng.2906	formation brine	water and oil	2015	SRA	PRJNA438985	SRS473742
 Gao2016	2016	10.1038/srep20174	HuaBeiBa19	54.738762	55.972054	China	ecological	core_1	6557	B9 Reservoir	7	1234	formation brine	water and oil	2015	SRA	PRJNA438985	SRS473742
-Gao2016	2016	10.1038/srep20174	HuaBeiBa19	54.738762	55.972054	China	ecological	core_1	6557	B9 Reservoir	7	10.1038/ng.2906	1234	water and oil	2015	SRA	PRJNA438985	SRS473742
+Gao2016	2016		HuaBeiBa19	54.738762	55.972054	China	ecological	core_1	6557	B9 Reservoir	7	10.1038/ng.2906	1234	water and oil	2015	SRA	PRJNA438985	SRS473742
 Gao2016	2016	10.1038/srep20174	HuaBeiBa19	54.738762	55.972054	China	ecological	core_1	6557	B9 Reservoir	7	10.1038/ng.2906	formation brine	1234	2015	SRA	PRJNA438985	SRS473742
 Gao2016	2016	10.1038/srep20174	HuaBeiBa19	54.738762	55.972054	China	ecological	core_1	6557	B9 Reservoir	7	10.1038/ng.2906	formation brine	water and oil	2015	SRA	PRJNA438985	SRS473742
 Gao2016	2016	10.1038/srep20174	HuaBeiBa19	54.738762	55.972054	China	ecological	core_1	6557	B9 Reservoir	7	10.1038/ng.2906	formation brine	water and oil	2015	1234	PRJNA438985	SRS473742
