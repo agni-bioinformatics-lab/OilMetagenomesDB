@@ -1,1 +1,3 @@
 project_name	publication_year	publication_doi	site_name	latitude	longitude	geo_loc_name	study_primary_focus	depth	temp	pH	salinity	NO3-	PO43-	SO42-	Ca2+	Mg2+	sample_name	feature	material	sampling_date	archive	archive_project	archive_accession
+Wang2020	2020	10.1080/01490451.2020.1817196	Jiubing Township, Fushun City, Liaoning Province	41.57 N	123.51 E	China	ecology	None	None	None	None	None	None	None	None	None	FS2-A	soil	oil field soil	2018	SRA	PRJNA576023	SRS5483115
+Gittins2021	2021	10.1101/2021.10.26.465990	Scotian Slope	43.010478	60.211776	Canada	industy	2306	None	None	None	None	None	None	None	None	NS-20160041-Day28-60degC-2	мarine sediment cores	мarine sediment	2016	SRA	PRJNA604781	SRS6107224
