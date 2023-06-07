@@ -10,7 +10,7 @@
   
 </div>
  
-:octocat: Community curated database of the metagenome of oil and oil fields🛢️🦠
+:octocat: Community curated database of the metagenome of oil and oil fieldss🛢️🦠
 
 + [Description](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/README.md#description)
 + [Usage](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/README.md#usage)
