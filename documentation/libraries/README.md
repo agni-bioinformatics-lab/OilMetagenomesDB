@@ -5,7 +5,7 @@
 This page describes columns definitions for all library-level lists. Icons indicate columns that are specific to specific columns.
 
 - 🏞: oilfield environmental metagenomes
-- 🦠: crude oil metagenomes
+- 🦠: crude oil metagenomess
 
 Numeric and text fields must be filled in with `None` to indicate 'value not reported'.
 
