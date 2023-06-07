@@ -25,9 +25,8 @@ jobs:
 
       - name: Check modified files
         run: |
-            MODIFIED_FILES=$(git diff --name-only origin/main...HEAD)
             ERROR=false
-            for FILE in $MODIFIED_FILES
+            for FILE in $(git diff --name-only origin/main...HEAD)
             do
               FILENAME=$(basename $FILE)
               if [[ $FILENAME != "common_libraries.tsv" && $FILENAME != "common_samples.tsv" ]]
@@ -40,8 +39,6 @@ jobs:
             then
               exit 1
             fi
-            echo "MODIFIED_FILES=$MODIFIED_FILES" >> $GITHUB_ENV
-        
 
       - name: Check for removed lines/cells and added lines
         run: |
