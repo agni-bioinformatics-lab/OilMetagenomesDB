@@ -1,5 +1,5 @@
 {
-    "library_name":                  {"description": "Лабораторное название секвенированной библиотеки", 
+    "library_names":                  {"description": "Лабораторное название секвенированной библиотеки", 
                                       "example": "16s5_samples_set", 
                                       "possible_values": "-",
                                       "type": "string", 
