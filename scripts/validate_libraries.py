@@ -1,37 +1,26 @@
-import subprocess
 import os
 import pandas as pd
 import json
 from jsonschema import validate, ValidationError
 
-# Путь к файлу
-file_path = os.environ["FILE_PATH_libraries"]
+# Путь к файлу до изменения
+before_file_path = os.environ["FILE_PATH_libraries"]
+# Путь к файлу после изменения
+after_file_path = os.environ["GITHUB_WORKSPACE"] + "/" + os.environ["FILE_PATH_libraries"]
 
-# Загрузка данных после pull request
-after_pull = pd.read_csv(file_path, sep="\t")
+# Загрузка данных до изменения
+before_pull = pd.read_csv(before_file_path, sep="\t")
 
-# Получение файла до pull request
-subprocess.run(["git", "fetch", "origin", "main"])
-subprocess.run(["git", "checkout", "FETCH_HEAD", "--", file_path])
-
-# Загрузка данных до pull request
-before_pull = pd.read_csv(file_path, sep="\t")
+# Загрузка данных после изменения
+after_pull = pd.read_csv(after_file_path, sep="\t")
 
 print("Таблица before_pull:")
 print(before_pull)
 print("Таблица after_pull:")
 print(after_pull)
 
-# Возврат к текущей версии файла
-subprocess.run(["git", "checkout", "--", file_path])
-
 # Находим строки, которые были добавлены
-merged = pd.merge(after_pull, before_pull, how='outer', indicator=True)
-new_rows = merged[merged['_merge'] == 'right_only']
-
-# Выводим новые строки
-print("Новые строки:")
-print(new_rows)
+new_rows = after_pull[~after_pull.isin(before_pull)].dropna()
 
 # Загрузка схемы JSON
 with open("assets/commons/common_libraries.json", "r") as file:
