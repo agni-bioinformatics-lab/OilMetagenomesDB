@@ -23,6 +23,10 @@ subprocess.run(["git", "checkout", "--", file_path])
 # Находим строки, которые были добавлены
 new_rows = after_pull[~after_pull.isin(before_pull)].dropna()
 
+# Выводим новые строки
+print("Новые строки:")
+print(new_rows)
+
 # Загрузка схемы JSON
 with open("assets/commons/common_libraries.json", "r") as file:
     schema = json.load(file)
