@@ -31,6 +31,6 @@ with open("assets/commons/common_samples.json", "r") as file:
 for idx, row in new_rows.iterrows():
     try:
         validate(instance=row.to_dict(), schema=schema)
-        # print(f"Валидация прошла успешно для строки {idx}")
+        print(f"Валидация прошла успешно для строки {idx}")
     except ValidationError as e:
         print(f"Ошибка в строке {idx}, колонка '{e.path[0]}', значение '{row[e.path[0]]}': {e.message}")
