@@ -36,7 +36,7 @@ if len(df_fork_check) != len(df_pr_check):
     exit(1)
 
 for row_idx in range(len(df_fork_check)):
-    if not df_fork_check.iloc[row_idx].equals(df_pr_check.iloc[row_idx]):
+    if tuple(df_fork_check.iloc[row_idx]) != tuple(df_pr_check.iloc[row_idx]):
         print("\033[31mNon-matching rows found:\033[0m")
         print("df_fork_check:")
         print(df_fork_check.iloc[row_idx])
