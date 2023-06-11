@@ -30,7 +30,9 @@ df_fork_check.reset_index(drop=True, inplace=True)
 df_pr_check.reset_index(drop=True, inplace=True)
 
 # Check if df_fork and df_pr are identical
-if not df_fork_check.equals(df_pr_check):
+comparison_result = df_fork_check.compare(df_pr_check)
+print(comparison_result)
+if not comparison_result.empty:
     print("\033[31mOld rows in common_samples.tsv have been modified or deleted\033[0m")
     exit(1)
 
