@@ -28,6 +28,17 @@ subprocess.call(command, shell=True)
 
 new_rows = df_pr[~df_pr.isin(df_fork)].dropna()
 
+# Вывод содержимого new_rows
+print("Содержимое new_rows:")
+print(new_rows)
+
+schema_file = "assets/commons/common_libraries.json"
+
+# Проверка существования файла схемы JSON
+if not os.path.isfile(schema_file):
+    print(f"Файл схемы JSON '{schema_file}' не найден.")
+    sys.exit(1)
+
 # Загрузка схемы JSON
 with open("assets/commons/common_libraries.json", "r") as file:
     schema = json.load(file)
@@ -39,7 +50,7 @@ for idx, row in new_rows.iterrows():
     try:
         row_json = row.to_json(orient='index')
         validate(instance=json.loads(row_json), schema=schema)
-        # print(f"Валидация прошла успешно для строки {idx}")
+        print(f"Валидация прошла успешно для строки {idx}")
     except ValidationError as e:
         errors_found = True
         print(f"Ошибка в строке {idx}, колонка '{e.path[0]}', значение '{row[e.path[0]]}': {e.message}")
