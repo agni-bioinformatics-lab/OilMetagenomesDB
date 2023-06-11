@@ -20,7 +20,7 @@ if (merged['_merge'] == 'left_only').any():
     print("\033[31mOld rows in common_libraries.tsv have been modified or deleted\033[0m")
     exit(1)
 
-command = 'echo -e "\033[38;5;40mNo old rows have been modified or deleted in common_samples.tsv\033[0m"'
+command = 'echo -n "\033[38;5;40mNo old rows have been modified or deleted in common_samples.tsv\033[0m"'
 subprocess.call(command, shell=True)
 
 new_rows = df_pr[~df_pr.isin(df_fork)].dropna()
