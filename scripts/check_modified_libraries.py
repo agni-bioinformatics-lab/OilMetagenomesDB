@@ -17,7 +17,8 @@ df_fork = pd.read_csv(os.environ["FILE_PATH"], sep="\t")
 
 new_rows = df_pr[~df_pr.isin(df_fork)].dropna()
 
-df_fork_check = df_fork
+df_fork_check = df_fork.copy()
+
 # Drop new_rows from df_pr and save it to df_pr_check
 df_pr_check = df_pr.drop(new_rows.index)
 
@@ -30,11 +31,18 @@ df_fork_check.reset_index(drop=True, inplace=True)
 df_pr_check.reset_index(drop=True, inplace=True)
 
 # Check if df_fork and df_pr are identical
-comparison_result = df_fork_check.compare(df_pr_check)
-print(comparison_result)
-if not comparison_result.empty:
-    print("\033[31mOld rows in common_samples.tsv have been modified or deleted\033[0m")
+if len(df_fork_check) != len(df_pr_check):
+    print("\033[31mNumber of rows in df_fork_check and df_pr_check are different\033[0m")
     exit(1)
+
+for row_idx in range(len(df_fork_check)):
+    if not df_fork_check.iloc[row_idx].equals(df_pr_check.iloc[row_idx]):
+        print("\033[31mNon-matching rows found:\033[0m")
+        print("df_fork_check:")
+        print(df_fork_check.iloc[row_idx])
+        print("df_pr_check:")
+        print(df_pr_check.iloc[row_idx])
+        exit(1)
 
 command = 'echo -n "\033[38;5;40mNo old rows have been modified or deleted in common_libraries.tsv\033[0m"'
 subprocess.call(command, shell=True)
