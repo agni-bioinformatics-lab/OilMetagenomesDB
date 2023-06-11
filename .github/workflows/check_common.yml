@@ -65,3 +65,13 @@ jobs:
          path: |
             df_pr_check.csv
             df_fork_check.csv
+        
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+         name: comparison-results
+         path: comparison-results
+    
+      - name: Compare CSV files
+        run: |
+            python scripts/compare_csv.py
