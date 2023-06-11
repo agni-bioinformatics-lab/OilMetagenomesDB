@@ -37,7 +37,8 @@ errors_found = False  # Флаг для отслеживания наличия 
 
 for idx, row in new_rows.iterrows():
     try:
-        validate(instance=row.to_dict(), schema=schema)
+        row_json = row.to_json(orient='index')
+        validate(instance=json.loads(row_json), schema=schema)
         # print(f"Валидация прошла успешно для строки {idx}")
     except ValidationError as e:
         errors_found = True
