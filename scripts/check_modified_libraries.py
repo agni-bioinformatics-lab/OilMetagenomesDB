@@ -23,7 +23,7 @@ df_pr_check = df_pr.drop(new_rows.index)
 print('df_fork')
 print(df_fork)
 print('df_pr_check')
-print(df_pr)
+print(df_pr_check)
 
 # Check if df_fork and df_pr are identical
 if not df_fork.equals(df_pr_check):
