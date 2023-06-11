@@ -850,3 +850,5 @@ nazina2021	2021	10.1134/s002626172105012x	kaluga ugs										illumina miseq		am
 nazina2021	2021	10.1134/s002626172105012x	kaluga ugs										illumina miseq		amplicon	v4					
 nazina2021	2021	10.1134/s002626172105012x	kaluga ugs										illumina miseq		amplicon	v4					
 nazina2021	2021	10.1134/s002626172105012x	kaluga ugs										illumina miseq		amplicon	v4					
+shelton2014	2014	10.3389/fmicb.2016.01535	salt 3 oil well	sra	prjna310850	srs1296669	s3	single	none	none	none		illumina miseq	single	amplicon	none	72849	srr3170222	https://sra-pub-run-odp.s3.amazonaws.com/sra/SRR3170222/SRR3170222	323ed09f53da81ecf2e166f41a8d785f	7576307
+an2013	twenty2	10.1021/es4020184	pas821tp: biofilm samples from sections of failed pipe	sra	prjna183510	srs624445	none	unknown	unknown	unknown	unknown	unknown	illumina hiseq 2000	paired	wgs	none	31117764	srr1313269	https://sra-pub-run-odp.s3.amazonaws.com/sra/SRR1313269/SRR1313269	c95e8d4772d1c1b96f9deffdf9a02865	28654105560
