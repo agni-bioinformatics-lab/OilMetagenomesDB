@@ -38,8 +38,11 @@ df_pr_check = df_pr_check.applymap(lambda x: x.strip() if isinstance(x, str) els
 df_pr_check = df_pr_check.applymap(lambda x: x.lower() if isinstance(x, str) else x)
 
 # Check if df_fork_check and df_pr_check are identical after normalization
-if not df_fork_check.equals(df_pr_check):
+comparison_result = df_fork_check.compare(df_pr_check)
+
+if not comparison_result.empty:
     print("\033[31mDataFrames df_fork_check and df_pr_check are different\033[0m")
+    print(comparison_result)
     exit(1)
     
 command = 'echo -n "\033[38;5;40mNo old rows have been modified or deleted in common_libraries.tsv\033[0m"'
