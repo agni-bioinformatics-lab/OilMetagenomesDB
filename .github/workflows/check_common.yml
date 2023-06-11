@@ -56,6 +56,5 @@ jobs:
               elif [[ $FILE == *"common_samples.tsv"* ]]; then
                 export FILE_PATH=${{ github.workspace }}/$FILE
                 python scripts/check_modified_samples.py
-                echo -e "\033[38;5;40mNo old rows have been modified or deleted in common_samples.tsv\033[0m"
               fi
             done
