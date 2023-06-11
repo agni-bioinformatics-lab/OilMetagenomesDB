@@ -57,3 +57,11 @@ jobs:
                 python scripts/check_modified_samples.py
               fi
             done
+
+      - name: Save df_pr_check and df_fork_check as artifacts
+        uses: actions/upload-artifact@v2
+        with:
+         name: comparison-results
+         path: |
+            df_pr_check.csv
+            df_fork_check.csv

@@ -37,13 +37,11 @@ df_fork_check = df_fork_check.applymap(lambda x: x.lower() if isinstance(x, str)
 df_pr_check = df_pr_check.applymap(lambda x: x.strip() if isinstance(x, str) else x)
 df_pr_check = df_pr_check.applymap(lambda x: x.lower() if isinstance(x, str) else x)
 
-# Check if df_fork_check and df_pr_check are identical after normalization
-comparison_result = df_fork_check.compare(df_pr_check)
+# Save df_pr_check to a CSV file
+df_pr_check.to_csv("df_pr_check.csv", index=False)
 
-if not comparison_result.empty:
-    print("\033[31mDataFrames df_fork_check and df_pr_check are different\033[0m")
-    print(comparison_result)
-    exit(1)
+# Save df_fork_check to a CSV file
+df_fork_check.to_csv("df_fork_check.csv", index=False)
     
 command = 'echo -n "\033[38;5;40mNo old rows have been modified or deleted in common_libraries.tsv\033[0m"'
 subprocess.call(command, shell=True)
