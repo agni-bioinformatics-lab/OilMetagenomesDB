@@ -17,16 +17,16 @@ df_fork = pd.read_csv(os.environ["FILE_PATH"], sep="\t")
 
 new_rows = df_pr[~df_pr.isin(df_fork)].dropna()
 
-# Remove new_rows from df_pr
-df_pr = df_pr.drop(new_rows.index)
+# Drop new_rows from df_pr and save it to df_pr_check
+df_pr_check = df_pr.drop(new_rows.index)
 
 print('df_fork')
 print(df_fork)
-print('df_pr')
+print('df_pr_check')
 print(df_pr)
 
 # Check if df_fork and df_pr are identical
-if not df_fork.equals(df_pr):
+if not df_fork.equals(df_pr_check):
     print("\033[31mOld rows in common_samples.tsv have been modified or deleted\033[0m")
     exit(1)
 
