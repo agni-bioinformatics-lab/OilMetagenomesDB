@@ -3,6 +3,10 @@ name: Data validation
 on:
   pull_request:
 
+env:
+  LIBRARIES_PATH: common_libraries/common_libraries.tsv
+  SAMPLES_PATH: common_samples/common_samples.tsv
+
 jobs:
 
   precheck:
