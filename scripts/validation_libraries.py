@@ -8,7 +8,7 @@ import sys
 print("it's working")
 
 # Load the file from the pull request
-df_pr = pd.read_csv(os.environ["/home/runner/work/OilMetagenomesDB/OilMetagenomesDB/common_libraries/common_libraries.tsv"], sep="\t")
+df_pr = pd.read_csv(os.environ["common_libraries/common_libraries.tsv"], sep="\t")
 
 # Fetch the version of the file when the fork was created
 subprocess.run(["git", "fetch", "origin", "main"])
