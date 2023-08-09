@@ -126,6 +126,8 @@ def read_tsv_with_mixed_types(file_path, columns):
                 else:
                     result[col].append(row[col])
 
+    return result
+
 columns_to_check = {
     "publication_year": True,
     "library_concentration": True,
@@ -134,5 +136,5 @@ columns_to_check = {
     "download_sizes": True,
 }
 
-data = read_tsv_with_mixed_types(new_rows, columns_to_check)
+data = read_tsv_with_mixed_types(os.environ["LIBRARIES_PATH"], columns_to_check)
 print(data)
