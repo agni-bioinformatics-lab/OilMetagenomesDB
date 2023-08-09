@@ -67,6 +67,7 @@ def is_valid(row, schema):
 columns_to_remove = ["publication_year", "library_concentration", "PCR_cycle_count", "read_count", "download_sizes"]
 columns = new_rows.columns.drop(columns_to_remove)
 new_rows = new_rows.where((pd.notna(new_rows)), None)
+print(new_rows.columns)
 
 # Путь к папке с JSON-файлами в репозитории
 schemas_path = os.path.join(os.environ["GITHUB_WORKSPACE"], 'schemas_libraries')
