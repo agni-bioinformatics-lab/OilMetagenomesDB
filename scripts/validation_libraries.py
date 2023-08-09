@@ -33,7 +33,8 @@ print(new_rows)
 # Compare the DataFrames of the pull request and the main branch
 comparison_result = df_pr_check.compare(df_fork_check)
 if comparison_result.empty:
-    print("\033[38;5;40mThe old rows haven't been changed\033[0m")
+    print("\033[38;5;40mThe old rows haven't been changed, now let's validate new rows\033[0m")
+    print()
 else:
     print("\033[31mThe old rows have been changed:\033[0m")
     print(comparison_result)
