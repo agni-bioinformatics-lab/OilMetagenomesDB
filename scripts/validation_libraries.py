@@ -80,6 +80,8 @@ for column in columns:
     json_file_path = os.path.join(schemas_path, json_file[0])
     with open(json_file_path, 'r') as file:
         schema = json.load(file)
+    
+    print(schema)
 
     # Применяем функцию валидации к соответствующему столбцу
     validation_results = new_rows[column].apply(is_valid, schema=schema['properties'][column])
