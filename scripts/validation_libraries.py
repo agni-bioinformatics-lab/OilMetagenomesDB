@@ -1,12 +1,6 @@
 import pandas as pd
-import os
-import subprocess
-import json
-from jsonschema import ValidationError
-import sys
-import re 
 import numpy as np
-import csv
+import os, sys, re, json, subprocess
 
 # Read the common_libraries.tsv from the pull request into a DataFrame
 df_pr = pd.read_csv(os.environ["LIBRARIES_PATH"], sep="\t")
@@ -117,18 +111,15 @@ def convert_value(value):
         except (ValueError, TypeError):
             return value
 
-def read_tsv_with_mixed_types(file_path, columns):
+def process_dataframe_with_mixed_types(df, columns):
     result = {col: [] for col in columns}
 
-    with open(file_path) as tsvfile:
-        data = csv.DictReader(tsvfile, delimiter="\t")
-
-        for row in data:
-            for col, check in columns.items():
-                if check:
-                    result[col].append(convert_value(row[col]))
-                else:
-                    result[col].append(row[col])
+    for _, row in df.iterrows():
+        for col, check in columns.items():
+            if check:
+                result[col].append(convert_value(row[col]))
+            else:
+                result[col].append(row[col])
 
     return result
 
@@ -140,5 +131,6 @@ columns_to_check = {
     "download_sizes": True,
 }
 
-data = read_tsv_with_mixed_types(os.environ["LIBRARIES_PATH"], columns_to_check)
+# Предполагая, что new_rows уже определен как датафрейм pandas
+data = process_dataframe_with_mixed_types(new_rows, columns_to_check)
 print(data)
