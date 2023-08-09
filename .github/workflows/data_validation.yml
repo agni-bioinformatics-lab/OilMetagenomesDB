@@ -89,7 +89,7 @@ jobs:
       - name: Install dependencies
         run: |
             python -m pip install --upgrade pip
-            pip install pandas jsonschema
+            pip install pandas numpy jsonschema
 
       # Run script validation for common_libraries.tsv
       - name: Run script validation_libraries.py

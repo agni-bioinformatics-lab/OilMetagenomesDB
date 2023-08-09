@@ -5,6 +5,7 @@ import json
 from jsonschema import ValidationError
 import sys
 import re 
+import numpy as np
 
 # Read the common_libraries.tsv from the pull request into a DataFrame
 df_pr = pd.read_csv(os.environ["LIBRARIES_PATH"], sep="\t")
@@ -68,7 +69,8 @@ columns = new_rows.columns.drop(columns_to_remove)
 
 # Replace NaN values with None in new_rows
 # new_rows = new_rows.where((pd.notna(new_rows)), None)
-new_rows = new_rows.replace('nan', None)
+new_rows.replace({np.nan: None}, inplace=True)
+
 
 # Define the path to the JSON schema files
 schemas_path = os.path.join(os.environ["GITHUB_WORKSPACE"], 'schemas_libraries')
