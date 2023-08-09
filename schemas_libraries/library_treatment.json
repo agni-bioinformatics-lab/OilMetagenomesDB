@@ -8,14 +8,14 @@
             "possible_values": "Прописано в enums",
             "type": ["string", "null"],
             "enum": [
-                "none", 
                 "full-udg",
                 "partial-udg", 
                 "full-user", 
                 "partial-user",
                 "udg",
                 "user",
-                "unknown"
+                "unknown",
+                null
               ]
             }
     }
