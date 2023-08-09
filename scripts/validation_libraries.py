@@ -38,59 +38,62 @@ else:
     print(comparison_result)
     sys.exit(1)
 
-# Выше все работает правильно 
+# Define a function to validate a cell value based on the given schema
+def is_valid(cell, schema):
 
-# Функция валидации
-def is_valid(row, schema):
-
-    # Проверка типа
+    # Validate the attribute 'type' if specified in the schema
     if 'type' in schema:
-        if schema['type'] == 'string' and not isinstance(row, str):
-            print(f"Ошибка в колонке {column} в строке '{row}' -> неверный тип данных. Ожидаемый тип: {schema['type']}")
+        if schema['type'] == 'string' and not isinstance(cell, str):
+            print(f"Error in column {column} in cell '{cell}' -> Invalid data type. Expected type: {schema['type']}")
             return False
-        elif schema['type'] == 'integer' and not isinstance(row, int):
-            print(f"Ошибка в колонке {column} в строке '{row}' -> неверный тип данных. Ожидаемый тип: {schema['type']}")
+        elif schema['type'] == 'integer' and not isinstance(cell, int):
+            print(f"Error in column {column} in cell '{cell}' -> Invalid data type. Expected type: {schema['type']}")
             return False
 
-    # Проверка по паттерну
-    if 'pattern' in schema and not re.match(schema['pattern'], str(row)):
-        print(f"Ошибка в колонке {column} в строке '{row}' -> не соответствует ожидаемому паттерну: {schema['pattern']}")
+    # Validate the attribute 'pattern' if specified in the schema
+    if 'pattern' in schema and not re.match(schema['pattern'], str(cell)):
+        print(f"Error in column {column} in cell '{cell}' -> Doesn't fit the expected pattern: {schema['pattern']}")
         return False
 
-    # Проверка по списку возможных значений
-    if 'enum' in schema and row not in schema['enum']:
-        print(f"Ошибка в колонке {column} в строке '{row}' -> значение не из списка возможных: {schema['enum']}")
+    # Validate the attribute 'enum' if specified in the schema
+    if 'enum' in schema and cell not in schema['enum']:
+        print(f"Error in column {column} in cell '{cell}' -> Value is not from the list of possible values: {schema['enum']}")
         return False
 
     return True
 
+# List of columns to be removed from validation
 columns_to_remove = ["publication_year", "library_concentration", "PCR_cycle_count", "read_count", "download_sizes"]
 columns = new_rows.columns.drop(columns_to_remove)
-new_rows = new_rows.where((pd.notna(new_rows)), None)
-print(new_rows.columns)
 
-# Путь к папке с JSON-файлами в репозитории
+# Replace NaN values with None in new_rows
+new_rows = new_rows.where((pd.notna(new_rows)), None)
+
+# Define the path to the JSON schema files
 schemas_path = os.path.join(os.environ["GITHUB_WORKSPACE"], 'schemas_libraries')
+
+# Initialize a flag to track if any validation fails
 error_flag = False
 
-# Итерация по списку колонок
+# Iterate through the columns and apply validation based on corresponding JSON schema
 for column in columns:
-    # Поиск соответствующего JSON файла
+    # Find and read the corresponding JSON file for the given column
     json_file = [file for file in os.listdir(schemas_path) if file.endswith('.json') and os.path.splitext(file)[0] == column]
-
     json_file_path = os.path.join(schemas_path, json_file[0])
     with open(json_file_path, 'r') as file:
         schema = json.load(file)
-    
-    print(schema)
 
-    # Применяем функцию валидации к соответствующему столбцу
+    # Apply the validation function to the current column using the loaded schema
     validation_results = new_rows[column].apply(is_valid, schema=schema['properties'][column])
     if not all(validation_results):
         error_flag = True
     else:
-        print('Успешная валидация колонки:', column)
+        print('Successful column validation:', column)
     print()
 
+# Print the final validation result, exit with an error code if any validation failed
 if error_flag:
+    print("\033[31mFailed validation of common_libraries.tsv\033[0m")
     sys.exit(1)
+else:
+    print("\033[38;5;40mSuccessful validation of common_libraries.tsv\033[0m")
