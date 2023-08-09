@@ -106,10 +106,14 @@ else:
 
 def convert_value(value):
     try:
-        return int(value)
+        converted_value = int(value)
+        return converted_value
     except (ValueError, TypeError):
         try:
-            return float(value)
+            converted_value = float(value)
+            if np.isnan(converted_value):
+                return None
+            return converted_value
         except (ValueError, TypeError):
             return value
 
