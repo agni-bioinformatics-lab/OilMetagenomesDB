@@ -6,6 +6,7 @@ from jsonschema import ValidationError
 import sys
 import re 
 import numpy as np
+import csv
 
 # Read the common_libraries.tsv from the pull request into a DataFrame
 df_pr = pd.read_csv(os.environ["LIBRARIES_PATH"], sep="\t")
@@ -29,6 +30,7 @@ df_pr_check = df_pr.drop(new_rows.index)
 # Print the content of the new rows added in the pull request
 print("\nContent of new_rows:")
 print(new_rows)
+print()
 
 # Compare the DataFrames of the pull request and the main branch
 comparison_result = df_pr_check.compare(df_fork_check)
@@ -68,10 +70,8 @@ def is_valid(cell, schema):
 columns_to_remove = ["publication_year", "library_concentration", "PCR_cycle_count", "read_count", "download_sizes"]
 columns = new_rows.columns.drop(columns_to_remove)
 
-# Replace NaN values with None in new_rows
-# new_rows = new_rows.where((pd.notna(new_rows)), None)
+# Replace nan values with None in new_rows
 new_rows.replace({np.nan: None}, inplace=True)
-
 
 # Define the path to the JSON schema files
 schemas_path = os.path.join(os.environ["GITHUB_WORKSPACE"], 'schemas_libraries')
@@ -101,3 +101,38 @@ if error_flag:
     sys.exit(1)
 else:
     print("\033[38;5;40mSuccessful validation of common_libraries.tsv\033[0m")
+
+# Все, что выше, правильно работает
+
+def convert_value(value):
+    try:
+        return int(value)
+    except (ValueError, TypeError):
+        try:
+            return float(value)
+        except (ValueError, TypeError):
+            return value
+
+def read_tsv_with_mixed_types(file_path, columns):
+    result = {col: [] for col in columns}
+
+    with open(file_path) as tsvfile:
+        data = csv.DictReader(tsvfile, delimiter="\t")
+
+        for row in data:
+            for col, check in columns.items():
+                if check:
+                    result[col].append(convert_value(row[col]))
+                else:
+                    result[col].append(row[col])
+
+columns_to_check = {
+    "publication_year": True,
+    "library_concentration": True,
+    "PCR_cycle_count": True,
+    "read_count": True,
+    "download_sizes": True,
+}
+
+data = read_tsv_with_mixed_types(new_rows, columns_to_check)
+print(data)
