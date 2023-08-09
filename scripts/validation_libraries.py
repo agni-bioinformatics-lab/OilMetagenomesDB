@@ -76,7 +76,7 @@ error_flag = False
 # Итерация по списку колонок
 for column in columns:
     # Поиск соответствующего JSON файла
-    json_file = [file for file in os.listdir(schemas_path) if file.endswith('.json') and file.startswith(column)]
+    json_file = [file for file in os.listdir(schemas_path) if file.endswith('.json') and os.path.splitext(file)[0] == column]
 
     json_file_path = os.path.join(schemas_path, json_file[0])
     with open(json_file_path, 'r') as file:
