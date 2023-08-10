@@ -97,13 +97,13 @@ else:
 
 # Все, что выше, правильно работает
 
-subprocess.run(["git", "checkout", "HEAD"])
+# subprocess.run(["git", "checkout", "HEAD"])
 
-data = pd.read_csv(os.environ["LIBRARIES_PATH"], sep='\t')
+# data = pd.read_csv(os.environ["LIBRARIES_PATH"], sep='\t')
 
 columns_to_validate = ['publication_year', 'library_concentration', 'PCR_cycle_count', 'read_count', 'download_sizes']
 
-for index, row in data.iterrows():
+for index, row in df_pr.iterrows():
     for col in columns_to_validate:
         value = row[col]
         if '.' in str(value):
