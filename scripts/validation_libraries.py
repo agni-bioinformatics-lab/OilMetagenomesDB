@@ -5,6 +5,9 @@ import os, sys, re, json, subprocess
 # Read the common_libraries.tsv from the pull request into a DataFrame
 df_pr = pd.read_csv(os.environ["LIBRARIES_PATH"], sep="\t", dtype={"publication_year": str})
 
+# Check publication_year
+df_py = pd.read_csv(os.environ["LIBRARIES_PATH"], sep="\t", dtype={"publication_year": str})
+
 # Fetch the main branch from the repository
 subprocess.run(["git", "fetch", "origin", "main"])
 
@@ -99,7 +102,7 @@ else:
 
 columns_to_validate = ['publication_year', 'library_concentration', 'PCR_cycle_count', 'read_count', 'download_sizes']
 
-for index, row in df_pr.iterrows():
+for index, row in df_py.iterrows():
     for col in columns_to_validate:
         value = row[col]
         if '.' in value:
