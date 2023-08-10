@@ -3,7 +3,7 @@ import numpy as np
 import os, sys, re, json, subprocess
 
 # Read the common_libraries.tsv from the pull request into a DataFrame
-df_pr = pd.read_csv(os.environ["LIBRARIES_PATH"], sep="\t", dtype={"publication_year": str})
+df_pr = pd.read_csv(os.environ["LIBRARIES_PATH"], sep="\t")
 
 # Check publication_year
 df_py = pd.read_csv(os.environ["LIBRARIES_PATH"], sep="\t", dtype={"publication_year": str})
