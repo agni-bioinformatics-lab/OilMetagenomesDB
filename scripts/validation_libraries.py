@@ -3,7 +3,7 @@ import numpy as np
 import os, sys, re, json, subprocess
 
 # Read the common_libraries.tsv from the pull request into a DataFrame
-df_pr = pd.read_csv(os.environ["LIBRARIES_PATH"], sep="\t")
+df_pr = pd.read_csv(os.environ["LIBRARIES_PATH"], sep="\t", dtype={"publication_year": str})
 
 # Fetch the main branch from the repository
 subprocess.run(["git", "fetch", "origin", "main"])
@@ -97,16 +97,12 @@ else:
 
 # Все, что выше, правильно работает
 
-# subprocess.run(["git", "checkout", "HEAD"])
-
-# data = pd.read_csv(os.environ["LIBRARIES_PATH"], sep='\t')
-
 columns_to_validate = ['publication_year', 'library_concentration', 'PCR_cycle_count', 'read_count', 'download_sizes']
 
 for index, row in df_pr.iterrows():
     for col in columns_to_validate:
         value = row[col]
-        if '.' in str(value):
+        if '.' in value:
             print(f"Value with dot found in row {index}, column {col}: {value}")
         else:
             print(f"Value without dot found in row {index}, column {col}: {value}")
