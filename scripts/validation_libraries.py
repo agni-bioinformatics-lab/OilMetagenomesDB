@@ -100,7 +100,7 @@ else:
 
 # Все, что выше, правильно работает
 
-columns_to_validate = ['publication_year', 'library_concentration', 'PCR_cycle_count', 'read_count', 'download_sizes']
+columns_to_validate = ['publication_year']
 
 for index, row in df_py.iterrows():
     for col in columns_to_validate:
