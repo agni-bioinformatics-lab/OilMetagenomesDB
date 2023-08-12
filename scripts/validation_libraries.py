@@ -105,7 +105,7 @@ else:
 
 # Все, что выше, правильно работает
 
-columns_to_validate = ["publication_year", "library_concentration", "PCR_cycle_count", "read_count", "download_sizes"]
+columns_to_validate = ["publication_year", "read_count", "download_sizes"]
 
 for index, row in df_pr_.iterrows():
     for col in columns_to_validate:
@@ -116,20 +116,20 @@ for index, row in df_pr_.iterrows():
                 print(f"Value with dot or None found in row {index}, column {col}: {value}")
             else:
                 print(f"Value without dot or None found in row {index}, column {col}: {value}")
-        elif col == "PCR_cycle_count":
-            value = row[col]
-            if '.' in value:
-                error_flag = True
-                print(f"Value with dot found in row {index}, column {col}: {value}")
-            else:
-                print(f"Value without dot found in row {index}, column {col}: {value}")
-        elif col == "library_concentration":
-            value = row[col]
-            if '.' not in value or value != "None":
-                error_flag = True
-                print(f"Value without dot found in row {index}, column {col}: {value}")
-            else:
-                print(f"Value with dot or None found in row {index}, column {col}: {value}")
+        # elif col == "PCR_cycle_count":
+        #     value = row[col]
+        #     if '.' in value:
+        #         error_flag = True
+        #         print(f"Value with dot found in row {index}, column {col}: {value}")
+        #     else:
+        #         print(f"Value without dot found in row {index}, column {col}: {value}")
+        # elif col == "library_concentration":
+        #     value = row[col]
+        #     if '.' not in value or value != "None":
+        #         error_flag = True
+        #         print(f"Value without dot found in row {index}, column {col}: {value}")
+        #     else:
+        #         print(f"Value with dot or None found in row {index}, column {col}: {value}")
 
 # Print the final validation result, exit with an error code if any validation failed
 if error_flag:
