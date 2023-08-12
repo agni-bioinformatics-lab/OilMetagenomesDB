@@ -125,7 +125,7 @@ for index, row in df_pr_.iterrows():
                 print(f"Value without dot found in row {index}, column {col}: {value}")
         elif col == "library_concentration":
             value = row[col]
-            if not '.' in value or value != "None":
+            if '.' not in value or value != "None":
                 error_flag = True
                 print(f"Value without dot found in row {index}, column {col}: {value}")
             else:
