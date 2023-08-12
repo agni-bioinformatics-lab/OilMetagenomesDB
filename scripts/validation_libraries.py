@@ -6,7 +6,12 @@ import os, sys, re, json, subprocess
 df_pr = pd.read_csv(os.environ["LIBRARIES_PATH"], sep="\t")
 
 # Check publication_year
-df_py = pd.read_csv(os.environ["LIBRARIES_PATH"], sep="\t", dtype={"publication_year": str})
+df_pr_ = pd.read_csv(os.environ["LIBRARIES_PATH"], sep="\t", 
+                     dtype={"publication_year": str, 
+                            "library_concentration": str,
+                            "PCR_cycle_count": str,
+                            "read_count": str,
+                            "download_sizes": str})
 
 # Fetch the main branch from the repository
 subprocess.run(["git", "fetch", "origin", "main"])
@@ -94,18 +99,40 @@ for column in columns:
 
 # Print the final validation result, exit with an error code if any validation failed
 if error_flag:
-    print("\033[31mFailed validation of common_libraries.tsv\033[0m")
+    print("\033[31mFailed validation of common_libraries.tsv part 1\033[0m")
 else:
-    print("\033[38;5;40mSuccessful validation of common_libraries.tsv\033[0m")
+    print("\033[38;5;40mSuccessful validation of common_libraries.tsv part 1\033[0m")
 
 # Все, что выше, правильно работает
 
-columns_to_validate = ['publication_year']
+columns_to_validate = ["publication_year", "library_concentration", "PCR_cycle_count", "read_count", "download_sizes"]
 
-for index, row in df_py.iterrows():
+for index, row in df_pr_.iterrows():
     for col in columns_to_validate:
-        value = row[col]
-        if '.' in value:
-            print(f"Value with dot found in row {index}, column {col}: {value}")
-        else:
-            print(f"Value without dot found in row {index}, column {col}: {value}")
+        if col == "publication_year" or "read_count" or "download_sizes":
+            value = row[col]
+            if '.' in value or value == "None":
+                error_flag = True
+                print(f"Value with dot or None found in row {index}, column {col}: {value}")
+            else:
+                print(f"Value without dot or None found in row {index}, column {col}: {value}")
+        elif col == "PCR_cycle_count":
+            value = row[col]
+            if '.' in value:
+                error_flag = True
+                print(f"Value with dot found in row {index}, column {col}: {value}")
+            else:
+                print(f"Value without dot found in row {index}, column {col}: {value}")
+        elif col == "library_concentration":
+            value = row[col]
+            if not '.' in value or value != "None":
+                error_flag = True
+                print(f"Value without dot found in row {index}, column {col}: {value}")
+            else:
+                print(f"Value with dot or None found in row {index}, column {col}: {value}")
+
+# Print the final validation result, exit with an error code if any validation failed
+if error_flag:
+    print("\033[31mFailed validation of common_libraries.tsv part 2\033[0m")
+else:
+    print("\033[38;5;40mSuccessful validation of common_libraries.tsv part 2\033[0m")
