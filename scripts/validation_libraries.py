@@ -109,7 +109,7 @@ columns_to_validate = ["publication_year", "library_concentration", "PCR_cycle_c
 
 for index, row in df_pr_.iterrows():
     for col in columns_to_validate:
-        if col == "publication_year" or "read_count" or "download_sizes":
+        if col in ("publication_year", "read_count", "download_sizes"):
             value = row[col]
             if '.' in value or value == "None":
                 error_flag = True
