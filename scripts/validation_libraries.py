@@ -105,7 +105,7 @@ else:
 
 # Все, что выше, правильно работает
 
-columns_to_validate = ["publication_year", "read_count", "download_sizes"]
+columns_to_validate = ["publication_year", "read_count", "download_sizes", "PCR_cycle_count"]
 
 for index, row in df_pr_.iterrows():
     for col in columns_to_validate:
