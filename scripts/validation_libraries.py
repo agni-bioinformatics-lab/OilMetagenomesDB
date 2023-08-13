@@ -124,7 +124,7 @@ def is_validate_2(df):
                     error_flag = True
                     print(f"Error in column {col} in cell '{value}'")
             elif col in ("library_concentration"):
-                if '.' not in value or value != "None":
+                if not ('.' in value or value == "None"):
                     error_flag = True
                     print(f"Error in column {col} in cell '{value}'")
         
