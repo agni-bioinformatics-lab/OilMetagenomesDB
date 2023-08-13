@@ -116,7 +116,7 @@ for index, row in df_pr_.iterrows():
                 print(f"Value with dot or None found in row {index}, column {col}: {value}")
             else:
                 print(f"Value without dot or None found in row {index}, column {col}: {value}")
-        elif col == "PCR_cycle_count":
+        elif col in ("PCR_cycle_count"):
             value = row[col]
             if '.' in value:
                 error_flag = True
