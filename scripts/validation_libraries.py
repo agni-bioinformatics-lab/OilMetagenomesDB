@@ -11,7 +11,8 @@ df_pr_ = pd.read_csv(os.environ["LIBRARIES_PATH"], sep="\t",
                             "library_concentration": str,
                             "PCR_cycle_count": str,
                             "read_count": str,
-                            "download_sizes": str})
+                            "download_sizes": str},
+                            na_filter=False)
 
 # Fetch the main branch from the repository
 subprocess.run(["git", "fetch", "origin", "main"])
