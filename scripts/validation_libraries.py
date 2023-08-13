@@ -12,10 +12,9 @@ df_pr_ = pd.read_csv(os.environ["LIBRARIES_PATH"], sep="\t",
                             "PCR_cycle_count": str,
                             "read_count": str,
                             "download_sizes": str},
-                            na_filter=False)
+                            na_values=['nan'], keep_default_na=False)
 
-# Replace nan values with None in df_pr_
-df_pr_.replace({np.nan: None}, inplace=True)
+df_pr_ = df_pr_.fillna('None')
 
 # Fetch the main branch from the repository
 subprocess.run(["git", "fetch", "origin", "main"])
