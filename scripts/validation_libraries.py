@@ -14,6 +14,9 @@ df_pr_ = pd.read_csv(os.environ["LIBRARIES_PATH"], sep="\t",
                             "download_sizes": str},
                             na_filter=False)
 
+# Replace nan values with None in df_pr_
+df_pr_.replace({np.nan: None}, inplace=True)
+
 # Fetch the main branch from the repository
 subprocess.run(["git", "fetch", "origin", "main"])
 
@@ -119,9 +122,7 @@ for index, row in df_pr_.iterrows():
                 print(f"Value without dot or None found in row {index}, column {col}: {value}")
         elif col in ("PCR_cycle_count"):
             value = row[col]
-            if pd.isna(value):  # Проверка на NaN
-                print(f"Missing value found in row {index}, column {col}")
-            if not re.match(r'^\d+$', value):
+            if '.' in value:
                 error_flag = True
                 print(f"Value with dot found in row {index}, column {col}: {value}")
             else:
