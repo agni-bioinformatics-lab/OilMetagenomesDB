@@ -108,31 +108,56 @@ else:
 
 # Все, что выше, правильно работает
 
-columns_to_validate = ["publication_year", "library_concentration", "PCR_cycle_count", "read_count", "download_sizes"]
+def is_validate_2(df):
+    columns_to_validate = ["publication_year", "library_concentration", "PCR_cycle_count", "read_count", "download_sizes"]
 
-for index, row in df_pr_.iterrows():
     for col in columns_to_validate:
-        if col in ("publication_year", "read_count", "download_sizes"):
-            value = row[col]
-            if '.' in value or value == "None":
-                error_flag = True
-                print(f"Value with dot or None found in row {index}, column {col}: {value}")
-            else:
-                print(f"Value without dot or None found in row {index}, column {col}: {value}")
-        elif col in ("PCR_cycle_count"):
-            value = row[col]
-            if '.' in value:
-                error_flag = True
-                print(f"Value with dot found in row {index}, column {col}: {value}")
-            else:
-                print(f"Value without dot found in row {index}, column {col}: {value}")
-        elif col in ("library_concentration"):
-            value = row[col]
-            if '.' not in value or value != "None":
-                error_flag = True
-                print(f"Value without dot found in row {index}, column {col}: {value}")
-            else:
-                print(f"Value with dot or None found in row {index}, column {col}: {value}")
+        error_flag = False
+        
+        for index, value in enumerate(df[col]):
+            if col in ("publication_year", "read_count", "download_sizes"):
+                if '.' in value or value == "None":
+                    error_flag = True
+                    print(f"Error in column {col} in cell '{value}'")
+            elif col in ("PCR_cycle_count"):
+                if '.' in value:
+                    error_flag = True
+                    print(f"Error in column {col} in cell '{value}'")
+            elif col in ("library_concentration"):
+                if '.' not in value or value != "None":
+                    error_flag = True
+                    print(f"Error in column {col} in cell '{value}'")
+        
+        if not error_flag:
+            print(f'Successful column validation: {col}')
+
+is_validate_2(df_pr_)
+
+# columns_to_validate = ["publication_year", "library_concentration", "PCR_cycle_count", "read_count", "download_sizes"]
+
+# for index, row in df_pr_.iterrows():
+#     for col in columns_to_validate:
+#         if col in ("publication_year", "read_count", "download_sizes"):
+#             value = row[col]
+#             if '.' in value or value == "None":
+#                 error_flag = True
+#                 print(f"Value with dot or None found in row {index}, column {col}: {value}")
+#             else:
+#                 print(f"Value without dot or None found in row {index}, column {col}: {value}")
+#         elif col in ("PCR_cycle_count"):
+#             value = row[col]
+#             if '.' in value:
+#                 error_flag = True
+#                 print(f"Value with dot found in row {index}, column {col}: {value}")
+#             else:
+#                 print(f"Value without dot found in row {index}, column {col}: {value}")
+#         elif col in ("library_concentration"):
+#             value = row[col]
+#             if '.' not in value or value != "None":
+#                 error_flag = True
+#                 print(f"Value without dot found in row {index}, column {col}: {value}")
+#             else:
+#                 print(f"Value with dot or None found in row {index}, column {col}: {value}")
 
 # Print the final validation result, exit with an error code if any validation failed
 if error_flag:
