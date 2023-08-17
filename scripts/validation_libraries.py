@@ -65,7 +65,8 @@ for column in columns:
             validate(instance=value, schema=schema)
             column_results.append("Valid")
         except ValidationError as e:
-            column_results.append(f"Invalid: {e.message.replace('\\\\', '\\')}")
+            error_message = e.message.replace('\\\\', '\\')
+            column_results.append(f"Invalid: {error_message}")
     validation_results[column] = column_results
 
 formatted_output = json.dumps(validation_results, indent=2, ensure_ascii=False)
