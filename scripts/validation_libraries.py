@@ -7,6 +7,7 @@ from jsonschema import validate, ValidationError
 df_pr = pd.read_csv(os.environ["LIBRARIES_PATH"], sep="\t")
 
 # Read the common_libraries.tsv from the pull request into a DataFrame to validate
+# Параметр keep_default_na указывает pandas не использовать список стандартных значений для преобразования в NaN
 df_pr_ = pd.read_csv(os.environ["LIBRARIES_PATH"], sep="\t", 
                      dtype={"publication_year": str, 
                             "library_concentration": str,
@@ -67,4 +68,5 @@ for column in columns:
             column_results.append(f"Invalid: {e.message}")
     validation_results[column] = column_results
 
-print(validation_results)
+formatted_output = json.dumps(validation_results, indent=2, ensure_ascii=False)
+print(formatted_output)
