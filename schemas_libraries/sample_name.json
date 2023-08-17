@@ -3,5 +3,5 @@
     "example": "a1",
     "possible_values": "-",
     "type": "string",
-    "pattern": "^(?=.*[a-zA-Z])(?=.*/d)[a-zA-Z/d/s]+$"
+    "pattern": "^(?=.*[a-zA-Z])(?=.*\\d)[a-zA-Z\\d\\s]+$"
 }
