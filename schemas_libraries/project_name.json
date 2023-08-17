@@ -3,5 +3,5 @@
     "example": "Zilov2023",
     "possible_values": "Уникальное для статьи",
     "type": "string",
-    "pattern": "^[A-Z][a-zA-Z]+\\d{4}$"
+    "pattern": "^[A-Z][a-z]+\\d{4}$"
 }

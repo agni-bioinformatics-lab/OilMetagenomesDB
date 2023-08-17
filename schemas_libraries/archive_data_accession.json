@@ -2,5 +2,5 @@
     "description": "Результат эксперимента SRR", 
     "example": "srr7754480", 
     "possible_values": "Уникальное для архива",
-    "type": "string"
+    "pattern": "^(srr)/d+"
 }

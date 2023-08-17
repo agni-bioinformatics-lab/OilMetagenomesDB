@@ -2,8 +2,7 @@
     "description": "Тип обработки библиотеки для устранения повреждений. Указывается в стаьте", 
     "example": "user", 
     "possible_values": "Прописано в enums",
-    "type": ["string", 
-             "null"],
+    "type": "string",
     "enum": ["full-udg",
              "partial-udg", 
              "full-user", 
@@ -11,5 +10,5 @@
              "udg",
              "user",
              "unknown",
-             null]
+             "None"]
 }

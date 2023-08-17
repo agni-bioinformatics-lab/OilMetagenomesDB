@@ -10,14 +10,14 @@ df_pr = pd.read_csv(os.environ["LIBRARIES_PATH"], sep="\t")
 # Параметр keep_default_na указывает pandas не использовать список стандартных значений для преобразования в NaN
 df_pr_ = pd.read_csv(os.environ["LIBRARIES_PATH"], sep="\t", 
                      dtype={"publication_year": str, 
+                            "strand_type": str,
+                            "library_polymerase": str,
                             "library_concentration": str,
+                            "library_treatment": str,
                             "PCR_cycle_count": str,
                             "read_count": str,
                             "download_sizes": str},
                             keep_default_na=False)
-
-# # Заменяем только значения None на строку 'None'
-# df_pr_ = df_pr_.applymap(lambda x: 'None' if x is None else x)
 
 # Fetch the main branch from the repository
 subprocess.run(["git", "fetch", "origin", "main"])

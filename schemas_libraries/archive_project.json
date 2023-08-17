@@ -3,5 +3,5 @@
     "example": "prjna604781, prjeb9855", 
     "possible_values": "Уникальное для статьи",
     "type": "string",
-    "pattern": "^(prj|srp|srx|srs).+"
+    "pattern": "^(prj|srp|srx|srs)[a-z]*/d+$"
 }
