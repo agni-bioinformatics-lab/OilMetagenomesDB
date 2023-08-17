@@ -65,6 +65,7 @@ for column in columns:
             validate(instance=value, schema=schema)
             column_results.append("Valid")
         except ValidationError as e:
+            # из-за экранирования необходима замена '\\\\' на '\\'
             error_message = e.message.replace('\\\\', '\\')
             column_results.append(f"Invalid: {error_message}")
     validation_results[column] = column_results
