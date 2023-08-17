@@ -2,5 +2,6 @@
     "description": "Указывать полимеразы, которые были применены после индексации библиотеки - писать источник, если берем не из статьи! - может быть в amplification kit", 
     "example": "fastpfu polymerase", 
     "possible_values": "-",
-    "type": "string"
+    "type": "string",
+    "pattern": "^([a-z/s]+|None)$"
 }
