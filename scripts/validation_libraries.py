@@ -13,10 +13,10 @@ df_pr_ = pd.read_csv(os.environ["LIBRARIES_PATH"], sep="\t",
                             "PCR_cycle_count": str,
                             "read_count": str,
                             "download_sizes": str},
-                            na_values=[])
+                            keep_default_na=False)
 
-# Заменяем только значения None на строку 'None'
-df_pr_ = df_pr_.applymap(lambda x: 'None' if x is None else x)
+# # Заменяем только значения None на строку 'None'
+# df_pr_ = df_pr_.applymap(lambda x: 'None' if x is None else x)
 
 # Fetch the main branch from the repository
 subprocess.run(["git", "fetch", "origin", "main"])
