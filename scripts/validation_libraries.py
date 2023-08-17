@@ -6,14 +6,20 @@ from jsonschema import validate, ValidationError
 # Read the common_libraries.tsv from the pull request into a DataFrame to compare
 df_pr = pd.read_csv(os.environ["LIBRARIES_PATH"], sep="\t")
 
-# Read the common_libraries.tsv from the pull request into a DataFrame to validate
-df_pr_ = pd.read_csv(os.environ["LIBRARIES_PATH"], sep="\t", 
+# Считываем файл
+df_pr_ = pd.read_csv(os.environ["LIBRARIES_PATH"], sep="\t",
                      dtype={"publication_year": str, 
                             "library_concentration": str,
                             "PCR_cycle_count": str,
                             "read_count": str,
                             "download_sizes": str},
-                            na_values=['nan'], keep_default_na=False).fillna('None')
+                     na_values=[], keep_default_na=False)
+
+# Заменяем ячейки с 'None' на строку 'None'
+df_pr_.replace('None', 'None', inplace=True)
+
+# Ячейки, которые не равны 'None', заменяем на 'empty'
+df_pr_.where(df_pr_ == 'None', 'empty', inplace=True)
 
 # Fetch the main branch from the repository
 subprocess.run(["git", "fetch", "origin", "main"])
