@@ -55,11 +55,13 @@ for column in columns:
     
     with open(json_file_path, 'r') as file:
         schema = json.load(file)
+    column_results = []
     for value in new_rows[column]:
         try:
             validate(instance=value, schema=schema)
-            validation_results[column] = "Valid"
+            column_results.append("Valid")
         except ValidationError as e:
-            validation_results[column] = f"Invalid: {e.message}"
+            column_results.append(f"Invalid: {e.message}")
+    validation_results[column] = column_results
 
 print(validation_results)
