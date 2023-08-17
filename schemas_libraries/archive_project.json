@@ -1,13 +1,7 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "type": "object",
-    "properties": {
-        "archive_project": {
-            "description": "Код проекта со всеми данными по образцам (PRJ). В статье может указываться код набора экспериментов (SRP), код эксперимента (SRX), код sample (SRS). Через эти обозначеня в NCBI можно найти код проекта", 
-            "example": "prjna604781, prjeb9855", 
-            "possible_values": "Уникальное для статьи",
-            "type": "string",
-            "pattern": "^(prj|srp|srx|srs).+"
-        }
-    }
+    "description": "Код проекта со всеми данными по образцам (PRJ). В статье может указываться код набора экспериментов (SRP), код эксперимента (SRX), код sample (SRS). Через эти обозначеня в NCBI можно найти код проекта", 
+    "example": "prjna604781, prjeb9855", 
+    "possible_values": "Уникальное для статьи",
+    "type": "string",
+    "pattern": "^(prj|srp|srx|srs).+"
 }

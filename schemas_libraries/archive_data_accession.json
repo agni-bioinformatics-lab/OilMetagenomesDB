@@ -1,12 +1,6 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "type": "object",
-    "properties": {
-        "archive_data_accession": {
-            "description": "Результат эксперимента SRR", 
-            "example": "srr7754480", 
-            "possible_values": "Уникальное для архива",
-            "type": "string"
-        }
-    }
+    "description": "Результат эксперимента SRR", 
+    "example": "srr7754480", 
+    "possible_values": "Уникальное для архива",
+    "type": "string"
 }

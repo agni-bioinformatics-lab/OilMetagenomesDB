@@ -1,13 +1,7 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "type": "object",
-    "properties": {
-        "publication_doi": {
-            "description": "DOI статьи, не должен содержать http://",
-            "example": "10.1007/s00253-018-8766-2",
-            "possible_values": "Уникальное для статьи",
-            "type": "string",
-            "pattern": "^10\\.\\d{4,9}\\/[^,]+$"
-        }
-    }
+    "description": "DOI статьи, не должен содержать http://",
+    "example": "10.1007/s00253-018-8766-2",
+    "possible_values": "Уникальное для статьи",
+    "type": "string",
+    "pattern": "^10\\.\\d{4,9}\\/[^,]+$"
 }

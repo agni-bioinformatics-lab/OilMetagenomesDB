@@ -1,13 +1,7 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "type": "object",
-    "properties": {
-        "sample_name": {
-            "description": "Какую айдишку использовало исследование для этого семлпа. Берем из статьи!! Если в статье нет- берем из NCBI",
-            "example": "a1",
-            "possible_values": "-",
-            "type": "string",
-            "pattern": "^(?!\\d+$).+"
-        }
-    }
+    "description": "Какую айдишку использовало исследование для этого семлпа. Берем из статьи!! Если в статье нет- берем из NCBI",
+    "example": "a1",
+    "possible_values": "-",
+    "type": "string",
+    "pattern": "^(?!\\d+$).+"
 }

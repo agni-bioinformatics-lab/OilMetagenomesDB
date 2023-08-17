@@ -1,12 +1,6 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "type": "object",
-    "properties": {
-        "download_links": {
-            "description": "Ссылка для скачивания каждого необработанного файла данных. Находит парсер", 
-            "example": "https://sra-pub-run-odp.s3.amazonaws.com/sra/SRR7754480/SRR7754480", 
-            "possible_values": "Уникальное для архива",
-            "type": "string"
-        }
-    }
+    "description": "Ссылка для скачивания каждого необработанного файла данных. Находит парсер", 
+    "example": "https://sra-pub-run-odp.s3.amazonaws.com/sra/SRR7754480/SRR7754480", 
+    "possible_values": "Уникальное для архива",
+    "type": "string"
 }

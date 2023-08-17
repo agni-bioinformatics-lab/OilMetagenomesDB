@@ -1,13 +1,7 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "type": "object",
-    "properties": {
-        "read_count": {
-            "description": "Сколько прочтений в файлах FASTQ. Находит парсер", 
-            "example": "215326", 
-            "possible_values": "-",
-            "type": "string",
-            "pattern": "^(\\d+)$"
-        }
-    }
+    "description": "Сколько прочтений в файлах FASTQ. Находит парсер", 
+    "example": "215326", 
+    "possible_values": "-",
+    "type": "string",
+    "pattern": "^(\\d+)$"
 }

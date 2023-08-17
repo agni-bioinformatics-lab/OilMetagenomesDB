@@ -1,21 +1,13 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "type": "object",
-    "properties": {
-        "library_strategy": {
-            "description": "Стратегия исследование: ампликоны, полный метагеном, метатранскриптом, метаболом", 
-            "example": "amplicon", 
-            "possible_values": "Прописано в enums",
-            "type": "string",
-            "enum": [
-                "wgs",
-                "targeted-capture",
-                "depletion",
-                "rna-seq",
-                "amplicon",
-                "metatranscriptomic",
-                "unknown"
-              ]
-        }
-    }
+    "description": "Стратегия исследование: ампликоны, полный метагеном, метатранскриптом, метаболом", 
+    "example": "amplicon", 
+    "possible_values": "Прописано в enums",
+    "type": "string",
+    "enum": ["wgs",
+             "targeted-capture",
+             "depletion",
+             "rna-seq",
+             "amplicon",
+             "metatranscriptomic",
+             "unknown"]
 }

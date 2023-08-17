@@ -1,12 +1,6 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "type": "object",
-    "properties": {
-        "library_name": {
-            "description": "Лабораторное название секвенированной библиотеки", 
-            "example": "16s5_samples_set", 
-            "possible_values": "-",
-            "type": "string"
-        }
-    }
+    "description": "Лабораторное название секвенированной библиотеки", 
+    "example": "16s5_samples_set", 
+    "possible_values": "-",
+    "type": "string"
 }

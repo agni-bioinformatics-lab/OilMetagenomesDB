@@ -1,13 +1,7 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "type": "object",
-    "properties": {
-        "PCR_cycle_count": {
-            "description": "Количество циклов ПЦР", 
-            "example": "25", 
-            "possible_values": "-",
-            "type": "string",
-            "pattern": "^(\\d+|None)$"
-        }
-    }
+    "description": "Количество циклов ПЦР", 
+    "example": "25", 
+    "possible_values": "-",
+    "type": "string",
+    "pattern": "^(\\d+|None)$"
 }

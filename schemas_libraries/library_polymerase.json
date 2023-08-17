@@ -1,12 +1,7 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "type": "object",
-    "properties": {
-        "library_polymerase": {
-            "description": "Указывать полимеразы, которые были применены после индексации библиотеки - писать источник, если берем не из статьи! - может быть в amplification kit", 
-            "example": "fastpfu polymerase", 
-            "possible_values": "-",
-            "type": ["string", "null"]
-        }
-    }
+    "description": "Указывать полимеразы, которые были применены после индексации библиотеки - писать источник, если берем не из статьи! - может быть в amplification kit", 
+    "example": "fastpfu polymerase", 
+    "possible_values": "-",
+    "type": ["string", 
+             "null"]
 }
