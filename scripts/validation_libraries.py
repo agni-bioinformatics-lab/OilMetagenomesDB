@@ -68,7 +68,12 @@ for column in columns:
             # из-за экранирования необходима замена '\\\\' на '\\'
             error_message = e.message.replace('\\\\', '\\')
             column_results.append(f"Invalid: {error_message}")
+            error_value = True
     validation_results[column] = column_results
 
 formatted_output = json.dumps(validation_results, indent=2, ensure_ascii=False)
 print(formatted_output)
+
+if error_value:
+    print("\033[31mInvalid values found\033[0m")
+    exit(1)
