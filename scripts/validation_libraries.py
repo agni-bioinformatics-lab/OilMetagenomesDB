@@ -1,11 +1,14 @@
 import pandas as pd
 import numpy as np
-import os, sys, re, json, subprocess
+import os, sys, re, json, subprocess, logging, colorlog
 from jsonschema import validate, ValidationError
-import logging
 
-# Настройка логгирования
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+# Настройка цветного логгирования
+handler = colorlog.StreamHandler()
+handler.setFormatter(colorlog.ColoredFormatter('%(log_color)s%(asctime)s - %(levelname)s - %(message)s'))
+logger = colorlog.getLogger()
+logger.addHandler(handler)
+logger.setLevel(logging.INFO)
 
 
 def read_dataframe_from_path(path):
@@ -73,27 +76,27 @@ def main():
     comparison_result = compare_dataframes(df_pr, df_fork)
 
     if comparison_result.empty:
-        logging.info("The old rows haven't been changed, now let's validate new rows")
+        logger.info("The old rows haven't been changed, now let's validate new rows")
     else:
-        logging.error("The old rows have been changed:")
-        logging.error(comparison_result)
+        logger.error("The old rows have been changed:")
+        logger.error(comparison_result)
         sys.exit(1)
 
     new_rows = df_pr_.loc[df_pr_.index[len(df_fork):]]
-    logging.info("\nContent of new_rows:")
-    logging.info(new_rows)
+    logger.info("\nContent of new_rows:")
+    logger.info(new_rows)
 
     schemas_path = os.path.join(os.environ["GITHUB_WORKSPACE"], 'schemas_libraries')
     validation_results, error_value = validate_new_rows(new_rows, schemas_path, df_fork.shape[0])
 
     formatted_output = json.dumps(validation_results, ensure_ascii=False, indent=1)
-    logging.info(formatted_output)
+    logger.info(formatted_output)
 
     if error_value:
-        logging.error("Invalid values found")
+        logger.error("Invalid values found")
         exit(1)
     else:
-        logging.info("No invalid values found")
+        logger.info("No invalid values found")
 
 
 if __name__ == "__main__":
