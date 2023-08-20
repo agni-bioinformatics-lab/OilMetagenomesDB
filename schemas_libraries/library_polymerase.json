@@ -3,5 +3,5 @@
     "example": "fastpfu polymerase", 
     "possible_values": "-",
     "type": "string",
-    "pattern": "^[a-z\\s]+$"
+    "pattern": "^([a-z\\s]+|None)$"
 }
