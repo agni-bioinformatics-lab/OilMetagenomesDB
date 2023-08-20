@@ -66,12 +66,12 @@ for column in columns:
             column_results.append("Valid")
         except ValidationError as e:
             # из-за экранирования необходима замена '\\\\' на '\\'
-            error_message = e.message.replace('\\\\', '\\')
-            column_results.append(f"Invalid: {error_message}")
+            # error_message = e.message.replace('\\\\', '\\')
+            column_results.append(f"Invalid: {e.message}")
             error_value = True
     validation_results[column] = column_results
 
-formatted_output = json.dumps(validation_results, indent=1)
+formatted_output = json.dumps(validation_results)
 print(formatted_output)
 
 if error_value:
