@@ -74,7 +74,7 @@ def main():
         sys.exit(1)
 
     new_rows = df_pr_.loc[df_pr_.index[len(df_fork):]]
-    print("Content of new_rows:", new_rows)
+    print("Content of new_rows:\n", new_rows)
 
     schemas_path = os.path.join(os.environ["GITHUB_WORKSPACE"], 'schemas_libraries')
     validation_results, error_value = validate_new_rows(new_rows, schemas_path, df_fork.shape[0])
