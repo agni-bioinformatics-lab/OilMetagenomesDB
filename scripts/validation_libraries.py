@@ -60,7 +60,7 @@ for column in columns:
     with open(json_file_path, 'r') as file:
         schema = json.load(file)
     column_results = []
-    for index, value in enumerate(new_rows[column], start=1):
+    for index, value in enumerate(new_rows[column], start=df_fork.shape[0]+1):
         try:
             validate(instance=value, schema=schema)
             column_results.append(f"Valid (Row {index})")
