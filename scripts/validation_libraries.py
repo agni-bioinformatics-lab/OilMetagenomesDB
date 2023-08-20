@@ -71,7 +71,7 @@ for column in columns:
             error_value = True
     validation_results[column] = column_results
 
-formatted_output = json.dumps(validation_results)
+formatted_output = json.dumps(validation_results, ensure_ascii=False)
 print(formatted_output)
 
 if error_value:
