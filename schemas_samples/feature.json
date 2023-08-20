@@ -1,0 +1,16 @@
+{
+    "description": "Описание среды из которой получен образец",
+    "example": "reservoir",
+    "possible_values": "Прописано в enums",
+    "type": "string",
+    "enum": ["reservoir", 
+             "well", 
+             "ocean", 
+             "lake", 
+             "soil", 
+             "injection well", 
+             "production well", 
+             "oil sand", 
+             "flooded oil reservoir", 
+             "sea"]
+}

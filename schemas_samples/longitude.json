@@ -1,0 +1,7 @@
+{
+    "description": "Долгота на которой забирали семпл",
+    "example": "1000.0",
+    "possible_values": "-",
+    "type": "string",
+    "pattern": "^(\\d+\\.\\d+|None)$"
+}

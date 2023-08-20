@@ -1,0 +1,7 @@
+{
+    "description": "Кислотность семпла", 
+    "example": "10", 
+    "possible_values": "-",
+    "type": "string",
+    "pattern": "^(\\d+|None)$"
+}

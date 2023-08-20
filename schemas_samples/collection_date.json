@@ -1,0 +1,7 @@
+{
+    "description": "Дата сбора образца",
+    "example": 2020,
+    "possible_values": "-",
+    "type": "string",
+    "pattern": "^(\\d+|None)$"
+}

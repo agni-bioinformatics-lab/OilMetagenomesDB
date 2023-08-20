@@ -1,0 +1,7 @@
+{
+    "description": "Указываем  в единицах API. Например: 0.932 g/cm3 = 932 kg/m3 =20 API", 
+    "example": "20", 
+    "possible_values": "-",
+    "type": "string",
+    "pattern": "^(\\d+|None)$"
+}

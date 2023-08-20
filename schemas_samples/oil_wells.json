@@ -1,0 +1,7 @@
+{
+    "description": "Айдишка скважины в статье",
+    "example": "A1",
+    "possible_values": "-",
+    "type": "string",
+    "pattern": "^([^A-Z]*|None)$"
+}

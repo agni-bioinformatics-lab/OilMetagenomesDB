@@ -1,0 +1,7 @@
+{
+    "description": "Код данных для sample, начинается SRS для SRA или ERS для ENA", 
+    "example": "srs5536770", 
+    "possible_values": "Уникально глобально",
+    "type": "string",
+    "pattern": "^(srs|ers)\\d+$"
+}

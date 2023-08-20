@@ -10,9 +10,10 @@ def read_dataframe_for_compare(path):
 def read_dataframe_for_validation(path):
     return pd.read_csv(path, sep="\t",
                        dtype={
-                           "publication_year": str, "strand_type": str, "library_polymerase": str,
-                           "library_concentration": str, "library_treatment": str, "PCR_cycle_count": str,
-                           "read_count": str, "download_sizes": str
+                           "publication_year": str, "oil_reservoir": str, "oil_wells": str, "latitude": str,
+                           "longitude": str, "depth": str, "temp": str, "pH": str, "salinity": str,
+                           "API": str, "NO3-": str, "PO43-": str, "SO42-": str, "Ca2+": str, "Mg2+": str,
+                           "Na+": str, "K+": str, "Cl-": str, "HCO3-": str, "acetate": str, "collection_date": str
                        },
                        keep_default_na=False)
 
@@ -55,13 +56,13 @@ def validate_new_rows(new_rows, schemas_path, starting_index):
 # Main execution
 def main():
     # Read the DataFrame for PR and validation
-    LIBRARIES_PATH = os.environ["LIBRARIES_PATH"]
-    df_pr = read_dataframe_for_compare(LIBRARIES_PATH)
-    df_pr_ = read_dataframe_for_validation(LIBRARIES_PATH)
+    SAMPLES_PATH = os.environ["SAMPLES_PATH"]
+    df_pr = read_dataframe_for_compare(SAMPLES_PATH)
+    df_pr_ = read_dataframe_for_validation(SAMPLES_PATH)
 
     # Fetch and checkout to main branch, then read the fork's DataFrame
-    fetch_and_checkout_branch("main", LIBRARIES_PATH)
-    df_fork = read_dataframe_for_compare(LIBRARIES_PATH)
+    fetch_and_checkout_branch("main", SAMPLES_PATH)
+    df_fork = read_dataframe_for_compare(SAMPLES_PATH)
 
     # Compare PR's and fork's DataFrame
     comparison_result = compare_dataframes(df_pr, df_fork)
@@ -77,7 +78,7 @@ def main():
     print("Content of new_rows:\n", new_rows)
 
     # Validate the new rows using schemas
-    schemas_path = os.path.join(os.environ["GITHUB_WORKSPACE"], 'schemas_libraries')
+    schemas_path = os.path.join(os.environ["GITHUB_WORKSPACE"], 'schemas_samples')
     validation_results, error_value = validate_new_rows(new_rows, schemas_path, df_fork.shape[0])
 
     # Print the validation results

@@ -1,0 +1,21 @@
+{
+    "description": "Биохимический процесс, который изучается в статье (bioremediation, microbial enhanced oil recovery (MEOR)",
+    "example": "bioremediation",
+    "possible_values": "Прописано в enums",
+    "type": "string",
+    "enum": ["bioremediation", 
+             "meor", 
+             "dsr", 
+             "oil degradation",
+             "metabolism", 
+             "methylotrophic methanogens", 
+             "comparison of oil reservoirs", 
+             "biogeochemical transformations",  
+             "biorecovery", 
+             "souring", 
+             "corrosion", 
+             "biofouling", 
+             "biodegradation", 
+             "contamination",  
+             "biosynthesis"]
+}

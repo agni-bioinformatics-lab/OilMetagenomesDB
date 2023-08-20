@@ -1,0 +1,9 @@
+{
+    "description": "Направленность исследования в статье",
+    "example": "ecology",
+    "possible_values": "Прописано в enums",
+    "type": "string",
+    "enum": ["ecology",
+             "industy",
+             "ecology/industy"]
+}

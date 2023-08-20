@@ -1,4 +1,8 @@
 {
+    "description": "Вид образца из которого выделяли днк бактерий",
+    "example": "oil field production water",
+    "possible_values": "Прописано в enums",
+    "type": "string",
     "enum": ["filtered produced water from oil",
              "water and oil",
              "produced water",

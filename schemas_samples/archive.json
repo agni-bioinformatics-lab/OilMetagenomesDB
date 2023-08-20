@@ -1,0 +1,9 @@
+{
+    "description": "Архив в котором хранятся данные библиотеки", 
+    "example": "sra", 
+    "possible_values": "Прописано в enums",
+    "type": "string", 
+    "enum": ["ena",
+             "sra",
+             "ddbj"]
+}

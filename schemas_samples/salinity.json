@@ -1,0 +1,7 @@
+{
+    "description": "Указываем в ppt, если указано 10%, пишем 100; 1 ppt = 1000 мг/л", 
+    "example": "0.5", 
+    "possible_values": "-",
+    "type": "string",
+    "pattern": "^(\\d+\\.\\d+|None)$"
+}

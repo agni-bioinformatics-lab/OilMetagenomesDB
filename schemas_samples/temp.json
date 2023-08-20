@@ -1,0 +1,7 @@
+{
+    "description": "Температура в цельсиях", 
+    "example": "100", 
+    "possible_values": "-",
+    "type": "string",
+    "pattern": "^(\\d+|None)$"
+}

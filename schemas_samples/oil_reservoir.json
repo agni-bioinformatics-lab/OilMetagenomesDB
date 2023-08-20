@@ -1,0 +1,7 @@
+{
+    "description": "Название нефтяного месторождения, должно писаться в статье или найти по координатам",
+    "example": "romashkinskoe",
+    "possible_values": "-",
+    "type": "string",
+    "pattern": "^([^A-Z]*|None)$"
+}
