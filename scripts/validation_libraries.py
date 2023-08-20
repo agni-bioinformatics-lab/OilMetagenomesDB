@@ -60,14 +60,14 @@ for column in columns:
     with open(json_file_path, 'r') as file:
         schema = json.load(file)
     column_results = []
-    for value in new_rows[column]:
+    for index, value in enumerate(new_rows[column], start=1):
         try:
             validate(instance=value, schema=schema)
-            column_results.append("Valid")
+            column_results.append(f"Valid (Row {index})")
         except ValidationError as e:
             # из-за экранирования необходима замена '\\\\' на '\\'
             error_message = e.message.replace('\\\\', '\\')
-            column_results.append(f"Invalid: {error_message}")
+            column_results.append(f"Invalid (Row {index}): {error_message}")
             error_value = True
     validation_results[column] = column_results
 
