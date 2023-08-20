@@ -52,11 +52,11 @@ print()
 schemas_path = os.path.join(os.environ["GITHUB_WORKSPACE"], 'schemas_libraries')
 columns = new_rows.columns
 validation_results = {}
+error_value = False
 
 for column in columns:
     json_file = [file for file in os.listdir(schemas_path) if file.endswith('.json') and os.path.splitext(file)[0] == column]
     json_file_path = os.path.join(schemas_path, json_file[0])
-    
     with open(json_file_path, 'r') as file:
         schema = json.load(file)
     column_results = []
