@@ -38,7 +38,7 @@ def compare_dataframes(df1, df2):
     return comparison_result
 
 
-def validate_new_rows(new_rows, schemas_path):
+def validate_new_rows(new_rows, schemas_path, starting_index):
     columns = new_rows.columns
     validation_results = {}
     error_value = False
@@ -49,7 +49,7 @@ def validate_new_rows(new_rows, schemas_path):
         with open(json_file_path, 'r') as file:
             schema = json.load(file)
         column_results = []
-        for index, value in enumerate(new_rows[column], start=df_fork.shape[0]):
+        for index, value in enumerate(new_rows[column], start=starting_index):
             try:
                 validate(instance=value, schema=schema)
                 column_results.append(f"Valid (Row {index})")
@@ -84,7 +84,7 @@ def main():
     logging.info(new_rows)
 
     schemas_path = os.path.join(os.environ["GITHUB_WORKSPACE"], 'schemas_libraries')
-    validation_results, error_value = validate_new_rows(new_rows, schemas_path)
+    validation_results, error_value = validate_new_rows(new_rows, schemas_path, df_fork.shape[0])
 
     formatted_output = json.dumps(validation_results, ensure_ascii=False, indent=1)
     logging.info(formatted_output)
