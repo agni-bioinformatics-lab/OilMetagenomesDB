@@ -34,10 +34,6 @@ def validate_new_rows(new_rows, schemas_path, starting_index):
     validation_results = {}
     error_value = False
 
-    for column in columns:
-        json_file = [file for file in os.listdir(schemas_path) if file.endswith('.json') and os.path.splitext(file)[0] == column]
-        print(json_file)
-
     # Loop through each column and validate against respective schema
     for column in columns:
         json_file = [file for file in os.listdir(schemas_path) if file.endswith('.json') and os.path.splitext(file)[0] == column]
@@ -54,7 +50,6 @@ def validate_new_rows(new_rows, schemas_path, starting_index):
                 column_results.append(f"Invalid (Row {index}): {error_message}")
                 error_value = True
         validation_results[column] = column_results
-
     return validation_results, error_value
 
 # Main execution
