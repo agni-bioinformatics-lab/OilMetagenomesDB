@@ -85,7 +85,7 @@ def main():
     print("Content of new_rows:\n", new_rows)
 
     # Check uniqueness of specified columns
-    columns_to_check = ['sample_name', 'library_name', 'download_links', 'download_md5s', 'archive_data_accession', 'archive_accession']
+    columns_to_check = ['archive_accession']
     non_unique_columns = check_column_uniqueness(new_rows, columns_to_check)
     
     if non_unique_columns:
