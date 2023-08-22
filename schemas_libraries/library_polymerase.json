@@ -1,5 +1,5 @@
 {
-    "description": "Указывать полимеразы, которые были применены после индексации библиотеки - писать источник, если берем не из статьи! - может быть в amplification kit", 
+    "description": "Specify the polymerases that were applied after indexing the library - write the source, if we take it not from the article! - can be in the amplification kit", 
     "example": "fastpfu polymerase", 
     "possible_values": "-",
     "type": "string",

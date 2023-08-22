@@ -1,5 +1,5 @@
 {
-    "description": "Какую айдишку использовало исследование для этого семлпа. Берем из статьи!! Если в статье нет- берем из NCBI",
+    "description": "What kind of ID was used by the study for this sample. We take it from the article!! If not in the article, we take it from NCBI",
     "example": "a1",
     "possible_values": "-",
     "type": "string",

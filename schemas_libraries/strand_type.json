@@ -1,7 +1,7 @@
 {
-    "description": "Тип библиотеки, подготовленной для секвенирования. Должно указываться в инструкции kit для подготовки образца - ССЫЛКА",
+    "description": "The type of library prepared for sequencing. Must be specified in the kit instructions for sample preparation - LINK",
     "example": "double",
-    "possible_values": "Прописано в enums",
+    "possible_values": "Registered in enums",
     "type": "string",
     "enum": ["single", 
              "double", 

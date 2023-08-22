@@ -1,5 +1,5 @@
 {
-    "description": "Год публикации, например 2023",
+    "description": "Year of publication, for example 2023",
     "example": 2023,
     "possible_values": "-",
     "type": "string",

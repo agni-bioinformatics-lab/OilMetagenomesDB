@@ -1,7 +1,7 @@
 {
-    "description": "Код проекта со всеми данными по образцам (PRJ). В статье может указываться код набора экспериментов (SRP), код эксперимента (SRX), код sample (SRS). Через эти обозначеня в NCBI можно найти код проекта", 
+    "description": "Project code with all sample data (PRJ). The article may specify the code of a set of experiments (SRP), experiment code (SRX), sample code (SRS). Through these designations in NCBI, you can find the project code", 
     "example": "prjna604781, prjeb9855", 
-    "possible_values": "Уникальное для статьи",
+    "possible_values": "Unique to the article",
     "type": "string",
     "pattern": "^(prj|srp|srx|srs)[a-z]*\\d+$"
 }

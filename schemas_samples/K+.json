@@ -1,5 +1,5 @@
 {
-    "description": "Указываем  в мг/л", 
+    "description": "We specify in mg/l", 
     "example": "5.0", 
     "possible_values": "-",
     "type": "string",

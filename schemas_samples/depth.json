@@ -1,5 +1,5 @@
 {
-    "description": "Глубина забора семпла в метрах",
+    "description": "Sampling depth in meters",
     "example": "1000.0",
     "possible_values": "-",
     "type": "string",

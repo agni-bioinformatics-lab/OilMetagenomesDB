@@ -1,6 +1,6 @@
 {
-    "description": "Контрольные суммы MD5 соответствующих загружаемых файлов. Это позволяет вам проверять целостность данных загруженных файлов, сравнивая контрольную сумму вашего файла с контрольной суммой на сервере, с которого они были загружены. Находит парсер", 
+    "description": "MD5 checksums of the corresponding uploaded files. This allows you to verify the data integrity of uploaded files by comparing the checksum of your file with the checksum on the server from which they were downloaded. Finds the parser", 
     "example": "5f574505fa16b7ae01a46682f8f24c87", 
-    "possible_values": "Уникальное для архива",
+    "possible_values": "Unique to the archive",
     "type": "string"
 }

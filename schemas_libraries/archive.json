@@ -1,7 +1,7 @@
 {
-    "description": "Архив в котором хранятся данные библиотеки", 
+    "description": "The archive where the library data is stored", 
     "example": "sra", 
-    "possible_values": "Прописано в enums",
+    "possible_values": "Registered in enums",
     "type": "string", 
     "enum": ["ena",
              "sra",

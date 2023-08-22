@@ -1,5 +1,5 @@
 {
-    "description": "Это количество копий qPCR на мкл экстракта данной библиотеки. Если библиотека, секвенировалась несколько раз, то можно дублировать значение для каждой библиотеки. Это нанограмм на микролитр или копия на микролитр", 
+    "description": "This is the number of copies of qPCR per mkl of the extract of this library. If the library has been sequenced several times, then you can duplicate the value for each library. Is it a nanogram per microliter or a copy per microliter", 
     "example": "41700000.1", 
     "possible_values": "-",
     "type": "string",

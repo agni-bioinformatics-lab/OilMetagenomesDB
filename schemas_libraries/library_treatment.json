@@ -1,7 +1,7 @@
 {
-    "description": "Тип обработки библиотеки для устранения повреждений. Указывается в стаьте", 
+    "description": "The type of library processing to repair the damage. Indicated in the article", 
     "example": "user", 
-    "possible_values": "Прописано в enums",
+    "possible_values": "Registered in enums",
     "type": "string",
     "enum": ["full-udg",
              "partial-udg", 

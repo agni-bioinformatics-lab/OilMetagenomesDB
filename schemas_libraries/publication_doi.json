@@ -1,7 +1,7 @@
 {
-    "description": "DOI статьи, не должен содержать http://",
+    "description": "DOI of the article, must not contain http://",
     "example": "10.1007/s00253-018-8766-2",
-    "possible_values": "Уникальное для статьи",
+    "possible_values": "Unique to the article",
     "type": "string",
     "pattern": "^10\\.\\d{4,9}\\/[^,]+$"
 }

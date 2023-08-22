@@ -1,5 +1,5 @@
 {
-    "description": "Лабораторное название секвенированной библиотеки", 
+    "description": "Laboratory name of the sequenced library", 
     "example": "16s5_samples_set", 
     "possible_values": "-",
     "type": "string"

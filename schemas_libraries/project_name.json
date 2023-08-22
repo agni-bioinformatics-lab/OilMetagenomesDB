@@ -1,7 +1,7 @@
 {
-    "description": "Название проекта, в формате ФамилияАвтораГод",
+    "description": "Project name, in the format AuthorYear",
     "example": "Zilov2023",
-    "possible_values": "Уникальное для статьи",
+    "possible_values": "Unique to the article",
     "type": "string",
     "pattern": "^[A-Z][a-z]+\\d{4}$"
 }

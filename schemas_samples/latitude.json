@@ -1,5 +1,5 @@
 {
-    "description": "Широта на которой забирали семпл",
+    "description": "The latitude at which the sample was taken",
     "example": "1000.0",
     "possible_values": "-",
     "type": "string",

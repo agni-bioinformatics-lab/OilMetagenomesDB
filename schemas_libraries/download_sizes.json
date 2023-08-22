@@ -1,7 +1,7 @@
 {
-    "description": "Размеры соответствующих загружаемых файлов в байтах. Это можно использовать для оценки места на жестком диске, которое будет использоваться после загрузки. Для парных чтений может быть разделенным точкой с запятой. Находит парсер", 
+    "description": "The sizes of the corresponding uploaded files in bytes. This can be used to estimate the hard disk space that will be used after booting. For paired readings, it can be separated by a semicolon. Finds the parser", 
     "example": "71368888", 
-    "possible_values": "Уникальное для архива",
+    "possible_values": "Unique to the archive",
     "type": "string",
     "pattern": "^(\\d+)$"
 }

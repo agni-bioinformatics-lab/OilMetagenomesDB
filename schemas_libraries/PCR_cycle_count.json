@@ -1,5 +1,5 @@
 {
-    "description": "Количество циклов ПЦР", 
+    "description": "Number of PCR cycles", 
     "example": "25", 
     "possible_values": "-",
     "type": "string",

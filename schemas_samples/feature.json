@@ -1,7 +1,7 @@
 {
-    "description": "Описание среды из которой получен образец",
+    "description": "Description of the medium from which the sample was obtained",
     "example": "reservoir",
-    "possible_values": "Прописано в enums",
+    "possible_values": "Registered in enums",
     "type": "string",
     "enum": ["reservoir", 
              "well", 

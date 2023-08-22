@@ -1,7 +1,7 @@
 {
-    "description": "Модель секвенатора. Указываются в статье", 
+    "description": "Sequencer model. Specified in the article", 
     "example": "illumina hiseq4000", 
-    "possible_values": "Уникально глобально. Прописано в enums",
+    "possible_values": "Unique globally. Registered in enums",
     "type": "string",
     "enum": ["454 gs",
              "454 gs 20",

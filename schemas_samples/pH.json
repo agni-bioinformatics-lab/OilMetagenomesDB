@@ -1,5 +1,5 @@
 {
-    "description": "Кислотность семпла", 
+    "description": "Sample acidity", 
     "example": "10.0", 
     "possible_values": "-",
     "type": "string",

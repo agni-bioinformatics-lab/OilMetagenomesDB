@@ -1,5 +1,5 @@
 {
-    "description": "Дата сбора образца",
+    "description": "Date of sample collection",
     "example": 2020,
     "possible_values": "-",
     "type": "string",

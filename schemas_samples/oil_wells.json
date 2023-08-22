@@ -1,5 +1,5 @@
 {
-    "description": "Айдишка скважины в статье",
+    "description": "The ID of the well in the article",
     "example": "A1",
     "possible_values": "-",
     "type": "string",

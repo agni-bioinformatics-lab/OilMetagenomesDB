@@ -1,5 +1,5 @@
 {
-    "description": "Сколько прочтений в файлах FASTQ. Находит парсер", 
+    "description": "How many reads are in the FASTQ files. Finds the parser", 
     "example": "215326", 
     "possible_values": "-",
     "type": "string",

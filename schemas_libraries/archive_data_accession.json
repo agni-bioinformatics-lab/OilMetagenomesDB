@@ -1,6 +1,6 @@
 {
-    "description": "Результат эксперимента SRR", 
+    "description": "The result of the SRR experiment", 
     "example": "srr7754480", 
-    "possible_values": "Уникальное для архива",
+    "possible_values": "Unique to the archive",
     "pattern": "^(srr)\\d+"
 }

@@ -1,7 +1,7 @@
 {
-    "description": "Метод секвенирования (односторонний или двусторонний), можно понять по количеству FASTQ файлов (1 или 2 соответственно)", 
+    "description": "The sequencing method (one-sided or two-sided) can be understood by the number of FASTQ files (1 or 2, respectively)", 
     "example": "paired", 
-    "possible_values": "Прописано в enums",
+    "possible_values": "Registered in enums",
     "type": "string",
     "enum": ["paired",
              "single"]
