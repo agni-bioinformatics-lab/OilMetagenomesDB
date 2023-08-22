@@ -28,6 +28,14 @@ def compare_dataframes(df1, df2):
     comparison_result = df1_check.compare(df2)
     return comparison_result
 
+# Check the uniqueness of specified columns in the DataFrame
+def check_column_uniqueness(df, columns):
+    non_unique_columns = []
+    for column in columns:
+        if not df[column].is_unique:
+            non_unique_columns.append(column)
+    return non_unique_columns
+
 # Validate new rows based on JSON schemas
 def validate_new_rows(new_rows, schemas_path, starting_index):
     columns = new_rows.columns
@@ -75,6 +83,16 @@ def main():
     # Extract new rows for validation
     new_rows = df_pr_.loc[df_pr_.index[len(df_fork):]]
     print("Content of new_rows:\n", new_rows)
+
+    # Check uniqueness of specified columns
+    columns_to_check = ['sample_name', 'library_name', 'download_links', 'download_md5s', 'archive_data_accession', 'archive_accession']
+    non_unique_columns = check_column_uniqueness(new_rows, columns_to_check)
+    
+    if non_unique_columns:
+        print(f"\033[31mColumns with non-unique values: {', '.join(non_unique_columns)}\033[0m")
+        exit(1)
+    else:
+        print("\033[38;5;40mAll specified columns have unique values\033[0m")
 
     # Validate the new rows using schemas
     schemas_path = os.path.join(os.environ["GITHUB_WORKSPACE"], 'schemas_samples')

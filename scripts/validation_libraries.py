@@ -27,6 +27,7 @@ def compare_dataframes(df1, df2):
     comparison_result = df1_check.compare(df2)
     return comparison_result
 
+# Check the uniqueness of specified columns in the DataFrame
 def check_column_uniqueness(df, columns):
     non_unique_columns = []
     for column in columns:
