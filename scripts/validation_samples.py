@@ -82,7 +82,7 @@ def main():
 
     # Extract new rows for validation
     new_rows = df_pr_.loc[df_pr_.index > df_fork.index.max()]
-    new_rows.index = range(len(df_fork) + 1, len(df_fork) + 1 + len(new_rows))
+    new_rows.index = range(len(df_fork) + 2, len(df_fork) + 2 + len(new_rows))
     print("Content of new_rows:\n", new_rows)
 
     # Check uniqueness of specified columns
