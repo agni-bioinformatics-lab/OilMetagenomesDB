@@ -50,7 +50,7 @@ def validate_new_rows(new_rows, schemas_path, starting_index):
                 column_results.append(f"Invalid (Row {index+2}): {error_message}")
                 error_value = True
         if len(column_results) == 0:
-            column_results.append("Valid")
+            column_results.append("Valid column")
         validation_results[column] = column_results
     return validation_results, error_value
 
