@@ -2,5 +2,6 @@
     "description": "The ID of the well in the article",
     "example": "A1",
     "possible_values": "db_common",
-    "type": "string"
+    "type": "string",
+    "pattern": "^.+$"
 }

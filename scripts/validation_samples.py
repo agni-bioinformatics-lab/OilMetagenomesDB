@@ -45,11 +45,12 @@ def validate_new_rows(new_rows, schemas_path, starting_index):
         for index, value in enumerate(new_rows[column], start=starting_index):
             try:
                 validate(instance=value, schema=schema)
-                column_results.append(f"Valid (Row {index+2})")
             except ValidationError as e:
                 error_message = e.message.replace('\\\\', '\\')
                 column_results.append(f"Invalid (Row {index+2}): {error_message}")
                 error_value = True
+        if len(column_results) == 0:
+            column_results.append("Valid")
         validation_results[column] = column_results
     return validation_results, error_value
 

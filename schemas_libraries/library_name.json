@@ -2,5 +2,6 @@
     "description": "Laboratory name of the sequenced library", 
     "example": "16s5_samples_set", 
     "possible_values": "article_uniq",
-    "type": "string"
+    "type": "string",
+    "pattern": "^.+$"
 }

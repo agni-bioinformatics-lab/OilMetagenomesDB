@@ -2,5 +2,6 @@
     "description": "What kind of ID was used by the study for this sample. We take it from the article. If not in the article, we take it from NCBI",
     "example": "A1",
     "possible_values": "article_uniq",
-    "type": "string"
+    "type": "string",
+    "pattern": "^.+$"
 }
