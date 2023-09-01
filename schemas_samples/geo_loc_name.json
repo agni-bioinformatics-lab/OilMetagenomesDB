@@ -1,7 +1,7 @@
 {
     "description": "The country where the well/field is located, from where samples were taken for analysis",
     "example": "usa",
-    "possible_values": "Registered in enum",
+    "possible_values": "db_common",
     "type": "string",
     "enum": ["afghanistan",
              "albania",

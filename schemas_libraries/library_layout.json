@@ -1,8 +1,9 @@
 {
     "description": "The sequencing method (one-sided or two-sided) can be understood by the number of FASTQ files (1 or 2, respectively)", 
     "example": "paired", 
-    "possible_values": "Registered in enum",
+    "possible_values": "article_common",
     "type": "string",
     "enum": ["paired",
-             "single"]
+             "single",
+             "unknown"]
 }

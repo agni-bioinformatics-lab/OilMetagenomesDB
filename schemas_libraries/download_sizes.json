@@ -1,7 +1,7 @@
 {
     "description": "The sizes of the corresponding uploaded files in bytes. This can be used to estimate the hard disk space that will be used after booting. For paired readings, it can be separated by a semicolon. Finds the parser", 
     "example": "71368888", 
-    "possible_values": "Unique to the archive",
+    "possible_values": "db_common",
     "type": "string",
     "pattern": "^(\\d+)$"
 }

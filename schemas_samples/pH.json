@@ -1,7 +1,7 @@
 {
     "description": "Sample acidity", 
     "example": "10.0", 
-    "possible_values": "-",
+    "possible_values": "db_common",
     "type": "string",
-    "pattern": "^(\\d+\\.\\d+|None)$"
+    "pattern": "^(\\d+\\.\\d+|None|unknown)$"
 }

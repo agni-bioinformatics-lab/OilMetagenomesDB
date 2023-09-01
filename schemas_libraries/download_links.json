@@ -1,7 +1,7 @@
 {
     "description": "A link to download each raw data file. Finds the parser", 
     "example": "https://sra-pub-run-odp.s3.amazonaws.com/sra/SRR7754480/SRR7754480", 
-    "possible_values": "Unique to the archive",
+    "possible_values": "article_uniq",
     "type": "string",
     "pattern": "^(http|ftp)"
 }

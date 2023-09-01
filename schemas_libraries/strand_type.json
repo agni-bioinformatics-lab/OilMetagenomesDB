@@ -1,7 +1,7 @@
 {
     "description": "The type of library prepared for sequencing. Must be specified in the kit instructions for sample preparation - LINK",
     "example": "double",
-    "possible_values": "Registered in enum",
+    "possible_values": "db_common",
     "type": "string",
     "enum": ["single", 
              "double", 

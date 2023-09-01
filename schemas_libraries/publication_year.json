@@ -1,7 +1,7 @@
 {
     "description": "Year of publication, YYYY format",
     "example": 2023,
-    "possible_values": "-",
+    "possible_values": "article_common",
     "type": "string",
     "pattern": "^(19[0-9]{2}|20[0-2][0-9]|2023)$"
 }

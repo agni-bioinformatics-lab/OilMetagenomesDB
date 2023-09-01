@@ -1,7 +1,7 @@
 {
     "description": "The name of the oil field should be written in the article or found by coordinates",
     "example": "romashkinskoe",
-    "possible_values": "-",
+    "possible_values": "db_common",
     "type": "string",
-    "pattern": "^([^A-Z]*|None)$"
+    "pattern": "^([^A-Z]*|None|unknown)$"
 }

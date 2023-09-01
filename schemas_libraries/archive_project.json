@@ -1,7 +1,7 @@
 {
     "description": "Project code with all sample data (PRJ). The article may specify the code of a set of experiments (SRP), experiment code (SRX), sample code (SRS). Through these designations in NCBI, you can find the project code", 
     "example": "PRJNA604781, PRJEB9855", 
-    "possible_values": "Unique to the article",
+    "possible_values": "article_common",
     "type": "string",
     "pattern": "^(PRJ|SRP|SRX|SRA)[A-Z]*\\d+$"
 }

@@ -1,7 +1,7 @@
 {
     "description": "Project name, in the format AuthorYear",
     "example": "Zilov2023",
-    "possible_values": "Unique to the article",
+    "possible_values": "article_common",
     "type": "string",
     "pattern": "^[A-Z][a-z]+\\d{4}$"
 }

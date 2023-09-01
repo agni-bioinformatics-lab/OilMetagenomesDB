@@ -1,7 +1,7 @@
 {
     "description": "Sequencer model. Specified in the article", 
     "example": "illumina hiseq4000", 
-    "possible_values": "Registered in enum",
+    "possible_values": "db_common",
     "type": "string",
     "enum": ["454 gs",
              "454 gs 20",
@@ -70,5 +70,6 @@
              "promethion",
              "sequel",
              "sequel ii",
-             "unspecified"]
+             "unspecified",
+             "unknown"]
 }

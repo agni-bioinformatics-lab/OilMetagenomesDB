@@ -1,7 +1,7 @@
 {
     "description": "Description of the medium from which the sample was obtained",
     "example": "reservoir",
-    "possible_values": "Registered in enum",
+    "possible_values": "db_common",
     "type": "string",
     "enum": ["oil reservoir",
              "unknown",

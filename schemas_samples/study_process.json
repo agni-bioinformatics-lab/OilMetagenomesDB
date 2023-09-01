@@ -1,7 +1,7 @@
 {
     "description": "The biochemical process that is studied in the article",
     "example": "bioremediation",
-    "possible_values": "Registered in enum",
+    "possible_values": "article_common",
     "type": "string",
     "enum": ["microbial enhanced oil recovery",
              "taxonomic and functional diversity",

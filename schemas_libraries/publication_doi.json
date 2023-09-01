@@ -1,7 +1,7 @@
 {
     "description": "DOI of the article",
     "example": "10.1007/s00253-018-8766-2",
-    "possible_values": "Unique to the article",
+    "possible_values": "article_common",
     "type": "string",
     "pattern": "^10\\.\\d{4,9}\\/[^,]+$"
 }

@@ -1,6 +1,7 @@
 {
     "description": "MD5 checksums of the corresponding uploaded files. This allows you to verify the data integrity of uploaded files by comparing the checksum of your file with the checksum on the server from which they were downloaded. Finds the parser", 
     "example": "5f574505fa16b7ae01a46682f8f24c87", 
-    "possible_values": "Unique to the archive",
-    "type": "string"
+    "possible_values": "article_uniq",
+    "type": "string",
+    "pattern": "^[a-zA-Z0-9]{32}$"
 }

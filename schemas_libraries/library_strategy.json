@@ -1,7 +1,7 @@
 {
     "description": "Research strategy: amplicons, full metagenome, metatranscriptome, metabolome", 
     "example": "amplicon", 
-    "possible_values": "Registered in enum",
+    "possible_values": "db_common",
     "type": "string",
     "enum": ["wgs",
              "targeted-capture",

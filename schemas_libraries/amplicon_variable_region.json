@@ -1,7 +1,7 @@
 {
     "description": "Variable regions of the 16S rRNA gene, which are used to identify taxa of bacteria and archaea. Specified in the article", 
     "example": "v3-v4", 
-    "possible_values": "-",
+    "possible_values": "db_common",
     "type": "string",
-    "pattern": "^(v[1-9]|v1-v2|v2-v3|v3-v4|v4-v5|v5-v6|v6-v7|v7-v8|v8-v9|None|unknown)$"
+    "pattern": "^(None|unknown|(v[1-9]|v1-v2|v2-v3|v3-v4|v4-v5|v5-v6|v6-v7|v7-v8|v8-v9|v1-v3|v6-v8)(, ?(v[1-9]|v1-v2|v2-v3|v3-v4|v4-v5|v5-v6|v6-v7|v7-v8|v8-v9|v1-v3|v6-v8))*)$"
 }

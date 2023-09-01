@@ -1,7 +1,7 @@
 {
     "description": "Data code for sample, starts SRS for SRA or ERS for ENA", 
     "example": "SRS5536770", 
-    "possible_values": "Unique globally",
+    "possible_values": "db_uniq",
     "type": "string",
     "pattern": "^(SRS|ERS)\\d+$"
 }

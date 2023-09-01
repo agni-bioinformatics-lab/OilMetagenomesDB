@@ -1,7 +1,7 @@
 {
     "description": "Specify the polymerases that were applied after indexing the library - write the source, if we take it not from the article. - can be in the amplification kit", 
     "example": "fastpfu polymerase", 
-    "possible_values": "-",
+    "possible_values": "db_common",
     "type": "string",
-    "pattern": "^([^A-Z]*|None)$"
+    "pattern": "^([^A-Z]*|None|unknown)$"
 }

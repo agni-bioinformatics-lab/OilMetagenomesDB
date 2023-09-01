@@ -1,7 +1,7 @@
 {
     "description": "Specify in ppt, if 10% is specified, write 100; 1 ppt = 1000 mg/l", 
     "example": "0.5", 
-    "possible_values": "-",
+    "possible_values": "db_common",
     "type": "string",
-    "pattern": "^(\\d+\\.\\d+|None)$"
+    "pattern": "^(\\d+\\.\\d+|None|unknown)$"
 }

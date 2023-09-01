@@ -1,7 +1,7 @@
 {
     "description": "We specify in mg/l", 
     "example": "5.0", 
-    "possible_values": "-",
+    "possible_values": "db_common",
     "type": "string",
-    "pattern": "^(\\d+\\.\\d+|None)$"
+    "pattern": "^(\\d+\\.\\d+|None|unknown)$"
 }

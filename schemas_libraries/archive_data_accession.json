@@ -1,7 +1,7 @@
 {
     "description": "The result of the SRR experiment", 
     "example": "SRR7754480", 
-    "possible_values": "Unique to the archive",
+    "possible_values": "db_uniq",
     "type": "string",
     "pattern": "^(SRR)\\d+"
 }

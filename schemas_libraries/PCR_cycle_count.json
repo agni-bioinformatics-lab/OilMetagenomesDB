@@ -1,7 +1,7 @@
 {
     "description": "Number of PCR cycles", 
     "example": "25", 
-    "possible_values": "-",
+    "possible_values": "db_common",
     "type": "string",
-    "pattern": "^(\\d+|None)$"
+    "pattern": "^(\\d+|None|unknown)$"
 }

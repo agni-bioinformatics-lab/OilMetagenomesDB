@@ -1,7 +1,7 @@
 {
     "description": "The type of library processing to repair the damage. Indicated in the article", 
     "example": "user", 
-    "possible_values": "Registered in enum",
+    "possible_values": "db_common",
     "type": "string",
     "enum": ["full-udg",
              "partial-udg", 

@@ -1,7 +1,7 @@
 {
     "description": "The focus of the research in the article",
     "example": "ecology",
-    "possible_values": "Registered in enum",
+    "possible_values": "article_common",
     "type": "string",
     "enum": ["ecology",
              "industy",

@@ -1,7 +1,7 @@
 {
     "description": "How many reads are in the FASTQ files. Finds the parser", 
     "example": "215326", 
-    "possible_values": "-",
+    "possible_values": "article_uniq",
     "type": "string",
     "pattern": "^(\\d+)$"
 }
