@@ -8,7 +8,12 @@ def read_dataframe_for_compare(path):
 
 # Read the DataFrame used for validation purposes with specific data types
 def read_dataframe_for_validation(path):
-    return pd.read_csv(path, sep="\t", dtype=str, keep_default_na=False)
+    return pd.read_csv(path, sep="\t", dtype={
+                           "publication_year": str, "oil_reservoir": str, "oil_wells": str, "latitude": str,
+                           "longitude": str, "depth": str, "temp": str, "pH": str, "salinity": str,
+                           "API": str, "NO3-": str, "PO43-": str, "SO42-": str, "Ca2+": str, "Mg2+": str,
+                           "Na+": str, "K+": str, "Cl-": str, "HCO3-": str, "acetate": str, "collection_date": str
+                       }, keep_default_na=False)
 
 # Fetch and checkout a specific branch in git
 def fetch_and_checkout_branch(branch_name, path):
