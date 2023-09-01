@@ -3,5 +3,5 @@
     "example": "v3-v4", 
     "possible_values": "-",
     "type": "string",
-    "pattern": "^v[1-9]$|^v1-v2$|^v2-v3$|^v3-v4$|^v4-v5$|^v5-v6$|^v6-v7$|^v7-v8$|^v8-v9$|None$|unknown$" 
+    "pattern": "^(v[1-9]|v1-v2|v2-v3|v3-v4|v4-v5|v5-v6|v6-v7|v7-v8|v8-v9|None|unknown)$"
 }
