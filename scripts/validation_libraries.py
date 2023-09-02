@@ -84,7 +84,7 @@ def main():
         sys.exit(1)
 
     # Duplicate rows check
-    duplicate_index_groups = find_duplicate_rows(df_pr)
+    duplicate_index_groups = find_duplicate_rows(df_pr_)
     if duplicate_index_groups:
         print("\033[31mDuplicate rows exist: " + ', '.join(f"rows {tuple(indices)}" for indices in duplicate_index_groups.values()) + "\033[0m")
         sys.exit(1)
