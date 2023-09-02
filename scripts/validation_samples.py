@@ -20,6 +20,7 @@ def fetch_and_checkout_branch(branch_name, path):
 def compare_dataframes(df1, df2):
     df1_check = df1.drop(df1.loc[df1.index[len(df2):]].index)
     comparison_result = df1_check.compare(df2)
+    comparison_result.index += 2
     return comparison_result
 
 # Return a dictionary that groups the indices of duplicate rows
@@ -27,8 +28,8 @@ def find_duplicate_rows(df):
     duplicated_rows = df[df.duplicated(keep=False)]
     duplicate_index_groups = defaultdict(list)
     for index, row in duplicated_rows.iterrows():
-        duplicate_index_groups[tuple(row)].append(index + 1)
-    return duplicate_index_groups
+        duplicate_index_groups[tuple(row)].append(index)
+    return {k: v for k, v in duplicate_index_groups.items() if len(v) > 1}
 
 # Check the uniqueness of specified columns in the DataFrame
 def check_column_uniqueness(df, columns):
