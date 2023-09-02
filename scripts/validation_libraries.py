@@ -69,25 +69,25 @@ def main():
     comparison_result = compare_dataframes(df_pr, df_fork)
 
     if comparison_result.empty:
-        print("\033[38;5;40mThe old rows haven't been changed, now let's validate new rows\033[0m")
+        print("\033[38;5;40mThe old rows haven't been changed\033[0m")
     else:
         print("\033[31mThe old rows have been changed:\033[0m", comparison_result)
         sys.exit(1)
 
+    # Check uniqueness of specified columns
+    columns_to_check = ['sample_name', 'library_name', 'download_links', 'download_md5s', 'archive_data_accession', 'archive_accession']
+    non_unique_columns = check_column_uniqueness(df_pr, columns_to_check)
+    
+    if non_unique_columns:
+        print(f"\033[31mColumns with non-unique values: {', '.join(non_unique_columns)}\033[0m")
+        sys.exit(1)
+    else:
+        print("\033[38;5;40mAll specified columns have unique values\033[0m")
+    
     # Extract new rows for validation
     new_rows = df_pr_.loc[df_pr_.index > df_fork.index.max()]
     new_rows.index = range(len(df_fork) + 2, len(df_fork) + 2 + len(new_rows))
     print("Content of new_rows:\n", new_rows)
-
-    # Check uniqueness of specified columns
-    columns_to_check = ['sample_name', 'library_name', 'download_links', 'download_md5s', 'archive_data_accession', 'archive_accession']
-    non_unique_columns = check_column_uniqueness(new_rows, columns_to_check)
-    
-    if non_unique_columns:
-        print(f"\033[31mColumns with non-unique values: {', '.join(non_unique_columns)}\033[0m")
-        exit(1)
-    else:
-        print("\033[38;5;40mAll specified columns have unique values\033[0m")
 
     # Validate the new rows using schemas
     schemas_path = os.path.join(os.environ["GITHUB_WORKSPACE"], 'schemas_libraries')
@@ -99,7 +99,7 @@ def main():
 
     if error_value:
         print("\033[31mInvalid values found\033[0m")
-        exit(1)
+        sys.exit(1)
     else:
         print("\033[38;5;40mNo invalid values found\033[0m")
 
