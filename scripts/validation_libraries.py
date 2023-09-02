@@ -71,7 +71,7 @@ def main():
     if comparison_result.empty:
         print("\033[38;5;40mThe old rows haven't been changed\033[0m")
     else:
-        print("\033[31mThe old rows have been changed:\033[0m", comparison_result)
+        print("\033[31mThe old rows have been changed:\033[0m\n", comparison_result)
         sys.exit(1)
 
     # Check uniqueness of specified columns
