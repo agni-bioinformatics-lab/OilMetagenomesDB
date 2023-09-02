@@ -28,7 +28,7 @@ def find_duplicate_rows(df):
     duplicated_rows = df[df.duplicated(keep=False)]
     duplicate_index_groups = defaultdict(list)
     for index, row in duplicated_rows.iterrows():
-        duplicate_index_groups[tuple(row)].append(index)
+        duplicate_index_groups[tuple(row)].append(index+2)
     return {k: v for k, v in duplicate_index_groups.items() if len(v) > 1}
 
 # Check the uniqueness of specified columns in the DataFrame
