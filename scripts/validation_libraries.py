@@ -1,6 +1,7 @@
 import pandas as pd
 import os, sys, json, subprocess
 from jsonschema import validate, ValidationError
+from collections import defaultdict
 
 # Read the DataFrame used for comparison purposes
 def read_dataframe_for_compare(path):
@@ -20,6 +21,14 @@ def compare_dataframes(df1, df2):
     df1_check = df1.drop(df1.loc[df1.index[len(df2):]].index)
     comparison_result = df1_check.compare(df2)
     return comparison_result
+
+# Return a dictionary that groups the indices of duplicate rows
+def find_duplicate_rows(df):
+    duplicated_rows = df[df.duplicated(keep=False)]
+    duplicate_index_groups = defaultdict(list)
+    for index, row in duplicated_rows.iterrows():
+        duplicate_index_groups[tuple(row)].append(index + 1)
+    return duplicate_index_groups
 
 # Check the uniqueness of specified columns in the DataFrame
 def check_column_uniqueness(df, columns):
@@ -67,17 +76,23 @@ def main():
 
     # Compare PR's and fork's DataFrame
     comparison_result = compare_dataframes(df_pr, df_fork)
-
     if comparison_result.empty:
         print("\033[38;5;40mThe old rows haven't been changed\033[0m")
     else:
         print("\033[31mThe old rows have been changed:\033[0m\n", comparison_result)
         sys.exit(1)
 
+    # Duplicate rows check
+    duplicate_index_groups = find_duplicate_rows(df_pr)
+    if duplicate_index_groups:
+        print("\033[31mDuplicate rows exist: " + ', '.join(f"rows {tuple(indices)}" for indices in duplicate_index_groups.values()) + "\033[0m")
+        sys.exit(1)
+    else:
+        print("\033[38;5;40mDuplicate rows not found\033[0m")
+    
     # Check uniqueness of specified columns
     columns_to_check = ['sample_name', 'library_name', 'download_links', 'download_md5s', 'archive_data_accession', 'archive_accession']
     non_unique_columns = check_column_uniqueness(df_pr, columns_to_check)
-    
     if non_unique_columns:
         print(f"\033[31mColumns with non-unique values: {', '.join(non_unique_columns)}\033[0m")
         sys.exit(1)
