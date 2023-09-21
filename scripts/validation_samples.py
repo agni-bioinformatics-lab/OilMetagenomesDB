@@ -5,7 +5,7 @@ from collections import defaultdict
 
 # Read the DataFrame used for comparison purposes
 def read_dataframe_for_compare(path):
-    return pd.read_csv(path, sep="\t")
+    return pd.read_csv(path, sep="\t", dtype=str)
 
 # Read the DataFrame used for validation purposes with specific data types
 def read_dataframe_for_validation(path):
