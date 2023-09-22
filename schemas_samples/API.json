@@ -1,6 +1,6 @@
 {
     "description": "Specify in API units. For example: 0.932 g/cm3 = 932 kg/m3 = 20 API", 
-    "example": "20", 
+    "example": "2", 
     "possible_values": "db_common",
     "type": "string",
     "pattern": "^(\\d+|None|unknown)$"
