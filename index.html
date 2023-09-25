@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_c3c5b463e8b283cc4c347c632d78c17b {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_c3c5b463e8b283cc4c347c632d78c17b" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_c3c5b463e8b283cc4c347c632d78c17b = L.map(
+                "map_c3c5b463e8b283cc4c347c632d78c17b",
+                {
+                    center: [47.0, 2.0],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 3,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_d76ab87f7ee78e1d5ef03e3ef27b280f = L.tileLayer(
+                "https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg",
+                {"attribution": "Map tiles by \u003ca target=\"_blank\" href=\"http://stamen.com\"\u003eStamen Design\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://creativecommons.org/licenses/by/3.0\"\u003eCC BY 3.0\u003c/a\u003e. Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://creativecommons.org/licenses/by-sa/3.0\"\u003eCC BY SA\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_c3c5b463e8b283cc4c347c632d78c17b);
+        
+    
+            var marker_1816de17999aae93d0852db7e4c196d0 = L.marker(
+                [-21.65431707, -39.57000732],
+                {}
+            ).addTo(map_c3c5b463e8b283cc4c347c632d78c17b);
+        
+    
+            var icon_34d7947a278a7ed5f7bd5830d3f3f589 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_1816de17999aae93d0852db7e4c196d0.setIcon(icon_34d7947a278a7ed5f7bd5830d3f3f589);
+        
+    
+        var popup_bc5a140ed4cbc50f7f5420b75d2ef9c3 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_518e798cb1f114b17f1ca8cb34afce67 = $(`<div id="html_518e798cb1f114b17f1ca8cb34afce67" style="width: 100.0%; height: 100.0%;">Project name:<br><a href="https://www.ncbi.nlm.nih.gov/search/all/?term=PRJNA679304" target="_blank">PRJNA679304</a><br>Study primary focus:ecology</div>`)[0];
+                popup_bc5a140ed4cbc50f7f5420b75d2ef9c3.setContent(html_518e798cb1f114b17f1ca8cb34afce67);
+            
+        
+
+        marker_1816de17999aae93d0852db7e4c196d0.bindPopup(popup_bc5a140ed4cbc50f7f5420b75d2ef9c3)
+        ;
+
+        
+    
+    
+            var marker_a43aa61eb2207c14ba9581a9f83dcd14 = L.marker(
+                [-21.65431707, -39.57000732],
+                {}
+            ).addTo(map_c3c5b463e8b283cc4c347c632d78c17b);
+        
+    
+            var icon_3b30e6e1555207e8e5ce48ba86365da0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_a43aa61eb2207c14ba9581a9f83dcd14.setIcon(icon_3b30e6e1555207e8e5ce48ba86365da0);
+        
+    
+        var popup_51dfccd53d863c933d5d5d8f259b4627 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_ebb0b894fca02d799b5c5f062a191c9f = $(`<div id="html_ebb0b894fca02d799b5c5f062a191c9f" style="width: 100.0%; height: 100.0%;">Project name:<br><a href="https://www.ncbi.nlm.nih.gov/search/all/?term=PRJNA679304" target="_blank">PRJNA679304</a><br>Study primary focus:ecology</div>`)[0];
+                popup_51dfccd53d863c933d5d5d8f259b4627.setContent(html_ebb0b894fca02d799b5c5f062a191c9f);
+            
+        
+
+        marker_a43aa61eb2207c14ba9581a9f83dcd14.bindPopup(popup_51dfccd53d863c933d5d5d8f259b4627)
+        ;
+
+        
+    
+    
+            var marker_e6f4ea9ebd134032be76a9e5003755f9 = L.marker(
+                [-21.65431707, -39.57000732],
+                {}
+            ).addTo(map_c3c5b463e8b283cc4c347c632d78c17b);
+        
+    
+            var icon_3353bc0fde9b14b884402cb2e2fd817a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_e6f4ea9ebd134032be76a9e5003755f9.setIcon(icon_3353bc0fde9b14b884402cb2e2fd817a);
+        
+    
+        var popup_02517e2cb811e54aa40fe9915fd485ff = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_ceb80692f307bc357c7822aebea8c0b1 = $(`<div id="html_ceb80692f307bc357c7822aebea8c0b1" style="width: 100.0%; height: 100.0%;">Project name:<br><a href="https://www.ncbi.nlm.nih.gov/search/all/?term=PRJNA679304" target="_blank">PRJNA679304</a><br>Study primary focus:ecology</div>`)[0];
+                popup_02517e2cb811e54aa40fe9915fd485ff.setContent(html_ceb80692f307bc357c7822aebea8c0b1);
+            
+        
+
+        marker_e6f4ea9ebd134032be76a9e5003755f9.bindPopup(popup_02517e2cb811e54aa40fe9915fd485ff)
+        ;
+
+        
+    
+    
+            var marker_1eb47edc532693815dd1a4f6a58886d5 = L.marker(
+                [-21.65431707, -39.57000732],
+                {}
+            ).addTo(map_c3c5b463e8b283cc4c347c632d78c17b);
+        
+    
+            var icon_467ed1ceb68d36c459e98fef3f31fe3e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_1eb47edc532693815dd1a4f6a58886d5.setIcon(icon_467ed1ceb68d36c459e98fef3f31fe3e);
+        
+    
+        var popup_66551bb5beb8f74da8fb6fde45f5e213 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_ab7cf30980fdd4a352a0d8a81fbaff99 = $(`<div id="html_ab7cf30980fdd4a352a0d8a81fbaff99" style="width: 100.0%; height: 100.0%;">Project name:<br><a href="https://www.ncbi.nlm.nih.gov/search/all/?term=PRJNA679304" target="_blank">PRJNA679304</a><br>Study primary focus:ecology</div>`)[0];
+                popup_66551bb5beb8f74da8fb6fde45f5e213.setContent(html_ab7cf30980fdd4a352a0d8a81fbaff99);
+            
+        
+
+        marker_1eb47edc532693815dd1a4f6a58886d5.bindPopup(popup_66551bb5beb8f74da8fb6fde45f5e213)
+        ;
+
+        
+    
+    
+            var marker_d4d0a19f65d2649ebda9db508647475b = L.marker(
+                [47.62, 52.66],
+                {}
+            ).addTo(map_c3c5b463e8b283cc4c347c632d78c17b);
+        
+    
+            var icon_93254e0e9e4bc72e6873abc1b60e2c87 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_d4d0a19f65d2649ebda9db508647475b.setIcon(icon_93254e0e9e4bc72e6873abc1b60e2c87);
+        
+    
+        var popup_f0d31cea444da0267f0f5272023d2267 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_edeab3e5acd266bbd6d1defd3b250195 = $(`<div id="html_edeab3e5acd266bbd6d1defd3b250195" style="width: 100.0%; height: 100.0%;">Project name:<br><a href="https://www.ncbi.nlm.nih.gov/search/all/?term=PRJNA704368" target="_blank">PRJNA704368</a><br>Study primary focus:ecology</div>`)[0];
+                popup_f0d31cea444da0267f0f5272023d2267.setContent(html_edeab3e5acd266bbd6d1defd3b250195);
+            
+        
+
+        marker_d4d0a19f65d2649ebda9db508647475b.bindPopup(popup_f0d31cea444da0267f0f5272023d2267)
+        ;
+
+        
+    
+</script>
+</html>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider@14.7.0/distribute/nouislider.min.css">
+<style>
+    .awesome-marker-shadow {
+        display: none !important;
+    }
+</style>
+<div id="depth-slider" style="margin-top: 50px; width: 80%; margin-left: 10%;"></div>
+<p id="slider-values" style="text-align: center;"></p>
+<script src="https://cdn.jsdelivr.net/npm/nouislider@14.7.0/distribute/nouislider.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const depths = ["2631.0", "2631.0", "2631.0", "2631.0", "10.0"];
+        const min_val = 10.0;
+        const max_val = 2631.0;
+        const markers = document.querySelectorAll(".leaflet-interactive");
+        markers.forEach((marker, idx) => {
+            marker.setAttribute('data-depth', depths[idx]);
+        });
+        
+        var slider = document.getElementById('depth-slider');
+        noUiSlider.create(slider, {
+            start: [10.0, 2631.0],
+            connect: true,
+            range: {
+                'min': 10.0,
+                'max': 2631.0
+            },
+            tooltips: [true, true],
+            format: {
+                to: function(value) {
+                    return value.toFixed(1);
+                },
+                from: function(value) {
+                    return value;
+                }
+            }
+        });
+        
+        slider.noUiSlider.on('update', function (values, handle) {
+            const min_val = parseFloat(values[0]);
+            const max_val = parseFloat(values[1]);
+            markers.forEach(marker => {
+                const depth = parseFloat(marker.getAttribute('data-depth'));
+                if (depth < min_val || depth > max_val) {
+                    marker.style.display = 'none';
+                } else {
+                    marker.style.display = '';
+                }
+            });
+            document.getElementById("slider-values").innerHTML = "Depth Range: " + values.map(val => val + "m").join(" to ");
+        });
+    });
+</script>

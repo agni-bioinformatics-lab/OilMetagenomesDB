@@ -11,7 +11,7 @@ env:
 
 jobs:
 
-  # Precheck job to verify modified files and set output variables
+  # precheck job to verify modified files and set output variables
   precheck:
     runs-on: ubuntu-latest
 

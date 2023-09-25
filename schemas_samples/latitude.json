@@ -3,5 +3,5 @@
     "example": "1000.0",
     "possible_values": "db_common",
     "type": "string",
-    "pattern": "^(\\d+\\.\\d+|None|unknown)$"
+    "pattern": "^(-?)(\\d+\\.\\d+|None|unknown)$"
 }

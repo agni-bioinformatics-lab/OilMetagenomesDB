@@ -3,5 +3,5 @@
     "example": "romashkinskoe",
     "possible_values": "db_common",
     "type": "string",
-    "pattern": "^([^A-Z]*|None|unknown)$"
+    "pattern": "^(?!\\s*$).*|None|unknown$"
 }

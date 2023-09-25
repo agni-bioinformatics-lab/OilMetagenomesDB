@@ -59,8 +59,6 @@ def validate_new_rows(new_rows, schemas_path, starting_index):
                 error_message = e.message.replace('\\\\', '\\')
                 column_results.append(f"Invalid (Row {index+2}): {error_message}")
                 error_value = True
-        if len(column_results) == 0:
-            column_results.append("Valid column")
         validation_results[column] = column_results
     return validation_results, error_value
 
@@ -92,7 +90,7 @@ def main():
         print("\033[38;5;40mDuplicate rows not found\033[0m")
     
     # Check uniqueness of specified columns
-    columns_to_check = ['sample_name', 'library_name', 'download_links', 'download_md5s', 'archive_data_accession', 'archive_accession']
+    columns_to_check = ['download_links', 'download_md5s', 'archive_data_accession']
     non_unique_columns = check_column_uniqueness(df_pr, columns_to_check)
     if non_unique_columns:
         print(f"\033[31mColumns with non-unique values: {', '.join(non_unique_columns)}\033[0m")

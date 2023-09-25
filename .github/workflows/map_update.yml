@@ -1,0 +1,54 @@
+name: Updating the map
+
+# Trigger this workflow on push
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'common_samples/common_samples.tsv'
+
+jobs:
+
+  # update_map updates map visualization and commits the changes
+  update_map:
+    runs-on: ubuntu-latest
+    
+    steps:
+
+      # Checkout to access workflow
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # Install required system dependencies
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgeos-dev
+
+      # Configure the Python environment 
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      # Install required dependencies
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas matplotlib cartopy folium
+
+      # Run script updating the map
+      - name: Run map visualization script
+        run: |
+          python scripts/map.py
+
+      # Commit and push updates
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git remote set-url origin https://${{secrets.MAP_METAGENOME}}@github.com/agni-bioinformatics-lab/OilMetagenomesDB.git
+          git add README.md assets/image/git_img_map.png index.html
+          git commit -m "Update map visualization in README.md"
+          git push

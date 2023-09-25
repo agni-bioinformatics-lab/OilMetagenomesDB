@@ -9,10 +9,10 @@ This page describes columns definitions for all sample-level lists. Also there i
 | project_name | Name of the project, <br> AuthorYear format | Zilov2023 | article_common | "type": "string", <br> "pattern": "\^[A-Z][a-z]+\\\d{4}$" |
 | publication_year | Year of publication, <br> YYYY format | 2023 | article_common | "type": "string", <br> "pattern": "^(19[0-9]{2}\|20[0-2][0-9]\|2023)$" |
 | publication_doi | DOI of the article | 10.1007/s00253-018-8766-2 | article_common | "type": "string", <br> "pattern": "^10\\\\.\\\d{4,9}\\\\/[^,]+$" |
-| oil_reservoir | The name of the oil field should be written in the article or found by coordinates | romashkinskoe | db_common | "type": "string", <br> "pattern": "^([^A-Z]*\|None\|unknown)$" |
+| oil_reservoir | The name of the oil field should be written in the article or found by coordinates | romashkinskoe | db_common | "type": "string", <br> "pattern": "^(?!\\\s*$).*\|None\|unknown\$" |
 | oil_wells | The ID of the well in the article | A1 | db_common | "type": "string", <br> "pattern": "^.+$" |
-| latitude | The latitude at which the sample was taken | 1000.0 | db_common | "type": "string", <br> "pattern": "^(\\\d+\\\\.\\\d+\|None\|unknown)$" |
-| longitude | The longitude at which the sample was taken | 1000.0 | db_common | "type": "string", <br> "pattern": "^(\\\d+\\\\.\\\d+\|None\|unknown)$" |
+| latitude | The latitude at which the sample was taken | 1000.0 | db_common | "type": "string", <br> "pattern": "^(-?)(\\\d+\\\\.\\\d+\|None\|unknown)$" |
+| longitude | The longitude at which the sample was taken | 1000.0 | db_common | "type": "string", <br> "pattern": "^(-?)(\\\d+\\\\.\\\d+\|None\|unknown)$" |
 | geo_loc_name | The country where the well/field is located, from where samples were taken for analysis | usa | db_common | Specified in an enum <br> [(link)](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/schemas_samples/geo_loc_name.json) |
 | study_primary_focus | The focus of the research in the article | ecology | article_common | Specified in an enum <br> [(link)](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/schemas_samples/study_primary_focus.json) |
 | study_process | The biochemical process that is studied in the article | bioremediation | article_common | Specified in an enum <br> [(link)](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/schemas_samples/study_process.json) |
