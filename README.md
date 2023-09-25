@@ -37,6 +37,9 @@ This list contains information of oil connected metagenomes which include crude 
 The database will release bug fix updates on issues from the GitHub that have been reported every half a year. You can always create new issues and make a tag to become our contributor.
 
 Our next update will include a web-based application for the user-friendly addition of new specimen information to the database.
+<!-- START-MAP-INSERT -->
+![My Map](./assets/image/git_img_map.png)
+<!-- END-MAP-INSERT -->
 
 <span id="usage"></span>
 ## Usage [![Up](assets/image/git_img_up.png)](#top)
