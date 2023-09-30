@@ -25,6 +25,8 @@ jobs:
       # Checkout to access workflow
       - name: Checkout repository
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
           
       # Ensure only valid files are changed
       - name: Check modified files
@@ -72,6 +74,8 @@ jobs:
 
       - name: Checkout repository
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
       # Configure the Python environment  
       - name: Set up Python
@@ -100,6 +104,8 @@ jobs:
 
       - name: Checkout repository
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
           
       - name: Set up Python
         uses: actions/setup-python@v2
@@ -121,22 +127,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-        - name: Checkout code
-          uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
-        # Configure the Python environment  
-        - name: Set up Python
-          uses: actions/setup-python@v2
-          with:
-            python-version: '3.x'
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
         
-        # Install required dependencies
-        - name: Install dependencies
-          run: |
-              python -m pip install --upgrade pip
-              pip install pandas jsonschema
+      - name: Install dependencies
+        run: |
+            python -m pip install --upgrade pip
+            pip install pandas jsonschema
 
-        # Run script validation for SRS data
-        - name: Run script validation_srs.py
-          run: |
-              python scripts/validation_srs.py
+      - name: Run script validation_srs.py
+        run: |
+            python scripts/validation_srs.py
