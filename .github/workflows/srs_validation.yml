@@ -3,9 +3,10 @@ name: SRS validation
 # Trigger this workflow on successful data_validation.yml
 on:
     workflow_run:
-      workflows: ["Data validation"]
-      types:
-        - completed
+        workflows:
+          - Data validation
+        types:
+          - completed
 
 jobs:
 
