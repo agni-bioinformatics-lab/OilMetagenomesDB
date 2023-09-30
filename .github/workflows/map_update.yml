@@ -10,7 +10,7 @@ on:
 
 jobs:
 
-  # update_map updates map visualization and commits the changes
+  # Job to update map visualization and commit the changes
   update_map:
     runs-on: ubuntu-latest
     
