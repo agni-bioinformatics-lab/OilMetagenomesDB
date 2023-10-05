@@ -11,6 +11,25 @@ env:
 
 jobs:
 
+  # Job to verify the presence of a specific label
+  check_label:
+    runs-on: ubuntu-latest
+    
+    steps:
+    
+        # Checkout to access workflow
+        - name: Checkout code
+          uses: actions/checkout@v2
+
+        # Сheck the existence of labels on the current PR
+        - name: Check for label
+          uses: actions/github-script@v5
+          with:
+            script: |
+              const { owner, repo, number: pull_number } = context.issue;
+              const { data: labels } = await github.rest.issues.listLabelsOnIssue({ owner, repo, pull_number });
+              if (!labels.some(label => label.name === 'your-label-here')) {throw new Error('Missing required label');}
+
   # Job to verify modified files and set output variables
   precheck:
     runs-on: ubuntu-latest
@@ -22,7 +41,6 @@ jobs:
 
     steps:
 
-      # Checkout to access workflow
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
