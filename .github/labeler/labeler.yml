@@ -1,4 +1,4 @@
 libraries:
   - common_libraries/common_libraries.tsv
 samples:
-  - common_samples/common_samples.tsv  
+  - common_samples/common_samples.tsv

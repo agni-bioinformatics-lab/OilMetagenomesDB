@@ -166,8 +166,8 @@ jobs:
           fetch-depth: 0
 
       - name: Labeler
-        uses: actions/labeler@v5.0.0-beta.1
+        uses: actions/labeler@v3
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
-          configuration-path: ".github/labeler/labeler-config.yml"
+          configuration-path: ".github/labeler.yml"
           sync-labels: false
