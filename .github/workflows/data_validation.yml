@@ -168,3 +168,4 @@ jobs:
         with:
           repo-token: "${{ secrets.LABEL_ACCESS }}"
           configuration-path: .github/labeler/labeler-config.yml
+          sync-labels: false
