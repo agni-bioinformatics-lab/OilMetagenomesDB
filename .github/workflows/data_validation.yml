@@ -2,7 +2,6 @@ name: Data validation
 
 # Trigger this workflow on pull requests
 on:
-  pull_request:
   pull_request_target:
 
 # Environment variables accessible across all jobs    
@@ -152,23 +151,24 @@ jobs:
             python scripts/validation_srs.py
 
   label_pr:
-    needs: [check_samples, check_libraries]
-    runs-on: ubuntu-latest
-    if: >
-      (always() && (needs.check_samples.result == 'success' && needs.check_libraries.result == 'success')) ||
-      (always() && ((needs.check_samples.result == 'skipped' && needs.check_libraries.result == 'success') || 
-                    (needs.check_samples.result == 'success' && needs.check_libraries.result == 'skipped')))
-    
-    steps:
-
-      - name: Checkout code
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-
-      - name: Labeler
-        uses: actions/labeler@v3
-        with:
-          repo-token: "${{ secrets.LABEL_ACCESS }}"
-          configuration-path: ".github/labeler.yml"
-          sync-labels: false
+      needs: [check_samples, check_libraries]
+      runs-on: ubuntu-latest
+      permissions:
+        contents: read
+        pull-requests: write
+      if: >
+        (always() && (needs.check_samples.result == 'success' && needs.check_libraries.result == 'success')) ||
+        (always() && ((needs.check_samples.result == 'skipped' && needs.check_libraries.result == 'success') || 
+                      (needs.check_samples.result == 'success' && needs.check_libraries.result == 'skipped')))
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
+          with:
+            fetch-depth: 0
+  
+        - name: Labeler
+          uses: actions/labeler@v3
+          with:
+            repo-token: "${{ secrets.LABEL_ACCESS }}"
+            configuration-path: ".github/labeler.yml"
+            sync-labels: false
