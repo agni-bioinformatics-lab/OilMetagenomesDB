@@ -166,5 +166,5 @@ jobs:
     
       - uses: actions/labeler@v3
         with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          repo-token: "${{ secrets.MAP_METAGENOME }}"
           configuration-path: .github/labeler/labeler-config.yml
