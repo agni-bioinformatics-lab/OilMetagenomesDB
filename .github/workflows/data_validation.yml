@@ -160,12 +160,14 @@ jobs:
     
     steps:
 
+      - name: Checkout code
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-    
-      - uses: actions/labeler@v3
+
+      - name: Labeler
+        uses: actions/labeler@v5.0.0-beta.1
         with:
-          repo-token: "${{ secrets.LABEL_ACCESS }}"
-          configuration-path: .github/labeler/labeler-config.yml
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          configuration-path: ".github/labeler/labeler-config.yml"
           sync-labels: false
