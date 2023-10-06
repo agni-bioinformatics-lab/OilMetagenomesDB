@@ -11,25 +11,6 @@ env:
 
 jobs:
 
-  # Job to verify the presence of a specific label
-  check_label:
-    runs-on: ubuntu-latest
-    
-    steps:
-    
-        # Checkout to access workflow
-        - name: Checkout code
-          uses: actions/checkout@v2
-
-        # Сheck the existence of labels on the current PR
-        - name: Check for label
-          uses: actions/github-script@v5
-          with:
-            script: |
-              const { owner, repo, number: pull_number } = context.issue;
-              const { data: labels } = await github.rest.issues.listLabelsOnIssue({ owner, repo, pull_number });
-              if (!labels.some(label => label.name === 'your-label-here')) {throw new Error('Missing required label');}
-
   # Job to verify modified files and set output variables
   precheck:
     runs-on: ubuntu-latest
@@ -168,3 +149,22 @@ jobs:
       - name: Run script validation_srs.py
         run: |
             python scripts/validation_srs.py
+
+  label_pr:
+    needs: [check_samples, check_libraries]
+    runs-on: ubuntu-latest
+    if: >
+      (always() && (needs.check_samples.result == 'success' && needs.check_libraries.result == 'success')) ||
+      (always() && ((needs.check_samples.result == 'skipped' && needs.check_libraries.result == 'success') || 
+                    (needs.check_samples.result == 'success' && needs.check_libraries.result == 'skipped')))
+    
+    steps:
+
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+    
+      - uses: actions/labeler@v3
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          configuration-path: .github/labeler/labeler-config.yml
