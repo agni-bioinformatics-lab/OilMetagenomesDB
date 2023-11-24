@@ -22,8 +22,6 @@
 
 Community <img src="https://github.githubassets.com/images/icons/emoji/octocat.png" alt="octocat" style="height: 1em;"> curated database of the metagenome of oil and oil fields🛢️🦠
 
-Show the interactive map <a href="https://agni-bioinformatics-lab.github.io/OilMetagenomesDB/"><img src="assets/image/git_img_link_map.png" width="100" align="middle" /></a>
-
 + [Description](#description)
 + [Usage](#usage)
 + [Samples Column Specifications](#samples-column-specifications)
