@@ -60,6 +60,6 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git remote set-url origin https://${{secrets.MAP_METAGENOME}}@github.com/agni-bioinformatics-lab/OilMetagenomesDB.git
-          git add README.md assets/image/git_img_map.png index.html assets/image/git_img_map_folium.png
+          git add README.md assets/image/git_img_map.png
           git commit -m "Update map visualization"
           git push
