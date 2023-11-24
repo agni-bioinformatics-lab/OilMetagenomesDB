@@ -33,11 +33,13 @@ def find_duplicate_rows(df):
 
 # Check the uniqueness of specified columns in the DataFrame
 def check_column_uniqueness(df, columns):
-    non_unique_columns = []
+    non_unique_entries = defaultdict(list)
     for column in columns:
-        if not df[column].is_unique:
-            non_unique_columns.append(column)
-    return non_unique_columns
+        duplicated_rows = df[df[column].duplicated(keep=False)]
+        if not duplicated_rows.empty:
+            for index, row in duplicated_rows.iterrows():
+                non_unique_entries[column].append(index + 2)
+    return non_unique_entries
 
 # Validate new rows based on JSON schemas
 def validate_new_rows(new_rows, schemas_path, starting_index):
@@ -92,9 +94,10 @@ def main():
     
     # Check uniqueness of specified columns
     columns_to_check = ['download_links', 'download_md5s', 'archive_data_accession']
-    non_unique_columns = check_column_uniqueness(df_pr, columns_to_check)
-    if non_unique_columns:
-        print(f"\033[31mColumns with non-unique values: {', '.join(non_unique_columns)}\033[0m")
+    non_unique_entries = check_column_uniqueness(df_pr, columns_to_check)
+    if non_unique_entries:
+        for column, indices in non_unique_entries.items():
+            print(f"\033[31mColumn '{column}' has non-unique values at rows: {', '.join(map(str, indices))}\033[0m")
         sys.exit(1)
     else:
         print("\033[38;5;40mAll specified columns have unique values\033[0m")

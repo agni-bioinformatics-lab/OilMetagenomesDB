@@ -1,0 +1,22 @@
+name: "Pull Request Labeler"
+on:
+  pull_request_target:
+
+jobs:
+  label_pr:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Labeler
+        uses: actions/labeler@v3
+        with:
+          repo-token: "${{ secrets.LABEL_ACCESS }}"
+          configuration-path: ".github/labeler.yml"
+          sync-labels: false

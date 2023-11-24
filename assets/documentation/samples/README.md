@@ -20,7 +20,7 @@ This page describes columns definitions for all sample-level lists. Also there i
 | temp | Temperature in Celsius | 100.0 | db_common | "type": "string", <br> "pattern": "^(\\\d+\\\\.\\\d+\|None\|unknown)$" |
 | pH | Sample acidity | 10.0 | db_common | "type": "string", <br> "pattern": "^(\\\d+\\\\.\\\d+\|None\|unknown)$" |
 | salinity | Specify in ppt, if 10% is specified, write 100; <br> 1 ppt = 1000 mg/l | 0.5 | db_common | "type": "string", <br> "pattern": "^(\\\d+\\\\.\\\d+\|None\|unknown)$" |
-| API | Specify in API units. <br> For example: 0.932 g/cm3 = 932 kg/m3 = 20 API | 20 | Unique to the article | "type": "string", <br> "pattern": "^(\\\d+\|None\|unknown)$" |
+| API | Must be rounded down to whole numbers.  Specify in API units. <br> For example: 0.932 g/cm3 = 932 kg/m3 = 20 API | 20 | Unique to the article | "type": "string", <br> "pattern": "^(\\\d+\|None\|unknown)$" |
 | NO3- | We specify in mg/l | 5.0 | db_common | "type": "string", <br> "pattern": "^(\\\d+\\\\.\\\d+\|None\|unknown)$" |
 | PO43- | We specify in mg/l | 5.0 | db_common | "type": "string", <br> "pattern": "^(\\\d+\\\\.\\\d+\|None\|unknown)$" |
 | SO42- | We specify in mg/l | 5.0 | db_common | "type": "string", <br> "pattern": "^(\\\d+\\\\.\\\d+\|None\|unknown)$" |
@@ -42,34 +42,40 @@ This page describes columns definitions for all sample-level lists. Also there i
 
 ## Dictionary for Materials Column:
 
-**seawater** - often taken from oil spills
+**API** - (American Petroleum Institute) a measure of crude oil density and viscosity
 
-**production fluid** - the undivided oil production fluid that has not yet separated
+**clean water** - typically used as a control for water quality comparisons
 
-**formation water** - water that is together with oil and solid phase, but which contains very little oil
+**core** - a cylindrical rock sample extracted from a well for laboratory analysis
 
-**injection water** - water that is pumped in to pump out oil under pressure
+**crude oil** - unprocessed oil with a high hydrocarbon percentage
 
-**oil contaminated soil** - soil contaminated with oil
-
-**soil** - just soil without oil, control
-
-**crude oil** - pure oil, high percentage of hydrocarbons
-
-**core** - a cylindrical rock sample that is extracted from a well for laboratory analysis
-
-**reservoir fluids** - same as reservoir brine, may be what is produced but also called in an oil reservoir, a mixture of water, oil and solids, not yet stratified
-
-**drilling mud** - is what's needed to lubricate the drill
+**drilling mud** - lubricating fluid used in drilling operations
 
 **drilling cuttings** - cuttings that go back to the ground when drilling
 
-**oil sands** - refers to a type of unconventional petroleum deposit that consists of a mixture of sand, water, clay, and bitumen, often refers to surface mining
+**formation water** - water found alongside oil and solid phases, with minimal oil content
 
-**clean water** - often the control of any water
+**grounded water** -  underground water with minimal connection to the reservoir
+
+**injection water** - water injected under pressure to facilitate oil extraction
+
+**oil contaminated soil** - soil that has been polluted with oil
+
+**oil reservoir** - a subsurface rock formation containing a significant amount of recoverable oil, where the oil is trapped and accumulates over geological time
+
+**oil sands** - a type of unconventional petroleum deposit containing sand, water, clay, and bitumen, often associated with surface mining
+
+**oil wells** - drilled boreholes designed to extract oil from underground reservoirs, providing a pathway for the oil to reach the surface for further processing
+
+**pipeline solids** - sediment on the pipeline, usually taken to check for corrosion
+
+**production fluid** - the undivided fluid produced during oil extraction that has not undergone separation
+
+**reservoir fluids** - also known as reservoir brine, a mixture of water, oil, and solids in an oil reservoir before stratification
+
+**seawater** - water collected from areas affected by oil spills
+
+**soil** - unaffected soil without oil, used as a control in experiments
 
 **solid** - solid phase formed after extraction
-
-**grounded water** - underground water that has little connection to the reservoir itself
-
-**pipeline solids** - sediment on the pipeline, usually taken to check for corrosion.

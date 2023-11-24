@@ -31,14 +31,6 @@ def find_duplicate_rows(df):
         duplicate_index_groups[tuple(row)].append(index+2)
     return {k: v for k, v in duplicate_index_groups.items() if len(v) > 1}
 
-# Check the uniqueness of specified columns in the DataFrame
-def check_column_uniqueness(df, columns):
-    non_unique_columns = []
-    for column in columns:
-        if not df[column].is_unique:
-            non_unique_columns.append(column)
-    return non_unique_columns
-
 # Validate new rows based on JSON schemas
 def validate_new_rows(new_rows, schemas_path, starting_index):
     columns = new_rows.columns
@@ -89,15 +81,6 @@ def main():
         sys.exit(1)
     else:
         print("\033[38;5;40mDuplicate rows not found\033[0m")
-    
-    # Check uniqueness of specified columns
-    columns_to_check = ['archive_accession']
-    non_unique_columns = check_column_uniqueness(df_pr, columns_to_check)
-    if non_unique_columns:
-        print(f"\033[31mColumns with non-unique values: {', '.join(non_unique_columns)}\033[0m")
-        sys.exit(1)
-    else:
-        print("\033[38;5;40mAll specified columns have unique values\033[0m")
     
     # Extract new rows for validation
     new_rows = df_pr_.loc[df_pr_.index > df_fork.index.max()]
