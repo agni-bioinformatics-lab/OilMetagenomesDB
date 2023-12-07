@@ -6,7 +6,7 @@ import re
 
 # Read data from the URL into a DataFrame
 df = pd.read_csv("https://raw.githubusercontent.com/agni-bioinformatics-lab/OilMetagenomesDB/main/common_samples/common_samples.tsv", sep="\t", decimal=".", engine='python')
-
+df[['latitude', 'longitude']] = df[['latitude', 'longitude']].apply(pd.to_numeric, errors='coerce')
 # Create and save a Matplotlib plot showing the geographical distribution of the data points
 fig, ax = plt.subplots(figsize=(15, 10), subplot_kw={'projection': ccrs.PlateCarree()})
 ax.set_title('World Map with Data Points', fontsize=16)
