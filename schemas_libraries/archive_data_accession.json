@@ -1,7 +1,7 @@
 {
-    "description": "The result of the SRR experiment", 
+    "description": "The run accession: SRR for SRA, ERR for ENA, DRR for DDBJ", 
     "example": "SRR7754480", 
     "possible_values": "db_uniq",
     "type": "string",
-    "pattern": "^(SRR)\\d+"
+    "pattern": "^(SRR|ERR|DRR)\\d+"
 }
