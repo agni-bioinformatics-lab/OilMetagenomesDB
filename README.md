@@ -4,19 +4,11 @@
 </p>
 <h2 align="center">Community curated database of oil metagenomes</h2>
 
-<div align="center">
-  
-<a href="https://github.com/agni-bioinformatics-lab/OilMetagenomesDB">
-  <img src="https://img.shields.io/github/watchers/agni-bioinformatics-lab/OilMetagenomesDB?label=Watch&style=social&logo=github" alt="github-watchers">
-</a>
-<a href="https://github.com/agni-bioinformatics-lab/OilMetagenomesDB">
-  <img src="https://img.shields.io/github/stars/agni-bioinformatics-lab/OilMetagenomesDB?style=social&logo=github" alt="github-stars">
-</a>
-<a href="https://github.com/agni-bioinformatics-lab/OilMetagenomesDB">
-  <img src="https://img.shields.io/github/license/agni-bioinformatics-lab/OilMetagenomesDB?style=social&logo=github" alt="github-license">
-</a>
-
-</div>
+<p align="center">
+  <a href="https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/agni-bioinformatics-lab/OilMetagenomesDB?style=flat-square&logo=github&label=Stars&color=C9A227"></a>
+  <a href="https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/watchers"><img alt="Watchers" src="https://img.shields.io/github/watchers/agni-bioinformatics-lab/OilMetagenomesDB?style=flat-square&logo=github&label=Watch&color=2E7D4F"></a>
+  <a href="https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/github/license/agni-bioinformatics-lab/OilMetagenomesDB?style=flat-square&label=License&color=1B4F72"></a>
+</p>
 
 <br/>
 
