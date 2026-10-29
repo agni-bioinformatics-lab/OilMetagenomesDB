@@ -36,7 +36,14 @@ This list contains information of oil connected metagenomes which include crude 
 
 The database will release bug fix updates on issues from the GitHub that have been reported every half a year. You can always create new issues and make a tag to become our contributor.
 
-Our next update will include a web-based application for the user-friendly addition of new specimen information to the database.
+A web interface for browsing and filtering the sample table lives in [`app/`](app/). It reads `common_samples/common_samples.tsv` directly, so the table and the interactive map stay in sync with the repository.
+
+The hosted app is available at [oilmetagenome.streamlit.app](https://oilmetagenome.streamlit.app/). To run the same interface locally:
+
+```bash
+pip install -r app/requirements.txt
+streamlit run app/streamlit_app.py
+```
 <!-- START-MAP-INSERT -->
 ![My Map](./assets/image/git_img_map.png)
 <!-- END-MAP-INSERT -->

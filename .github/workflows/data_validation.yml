@@ -31,19 +31,28 @@ jobs:
       - name: Check modified files
         run: |
             MODIFIED_FILES=$(git diff --name-only origin/main...HEAD)
-            ERROR=false
+            DATA_CHANGED=false
+            OTHER_CHANGED=false
             for FILE in $MODIFIED_FILES
             do
               FILENAME=$(basename $FILE)
-              if [[ $FILENAME != "common_libraries.tsv" && $FILENAME != "common_samples.tsv" ]]
+              if [[ $FILENAME == "common_libraries.tsv" || $FILENAME == "common_samples.tsv" ]]
               then
-                echo -e "\e[31mInvalid file modified: $FILE\e[0m"
-                ERROR=true
+                DATA_CHANGED=true
+              else
+                echo -e "\e[33mNon-table file modified: $FILE\e[0m"
+                OTHER_CHANGED=true
               fi
             done
-            if $ERROR
+            if $DATA_CHANGED && $OTHER_CHANGED
             then
+              echo -e "\e[31mData pull requests may only change common_samples.tsv and common_libraries.tsv\e[0m"
               exit 1
+            fi
+            if ! $DATA_CHANGED
+            then
+              echo -e "\033[38;5;40mNo sample or library tables in this pull request; skipping validation\033[0m"
+              echo "SKIP_VALIDATION=true" >> $GITHUB_ENV
             fi
             MODIFIED_FILES=$(echo $MODIFIED_FILES | tr '\n' ' ')
             echo "MODIFIED_FILES=$MODIFIED_FILES" >> $GITHUB_ENV
