@@ -7,17 +7,22 @@
 Order of Action:
 1) Find the NCBI bioproject identifier in the article (e.g. PRJNA729662)
 
-2) Download the parsing script **parse_bioproject.py** from the [OilMetagenomesDB](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB) repository
+2) Download the parsing script **parse_bioproject.py** from the `scripts/` folder of the [OilMetagenomesDB](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB) repository. It needs Python 3 and no extra packages.
 
 3) Navigate in the console to the folder where your script is located
 
-4) Use the **parse_bioproject.py** script to collect metadata from NCBI
+4) Use the **parse_bioproject.py** script to collect metadata from NCBI. The optional `--project-name`, `--year` and `--doi` arguments fill the corresponding columns of the draft tables:
 ```ruby
-   python parse_bioproject.py -id PRJNA729662
+   python parse_bioproject.py -id PRJNA729662 --project-name Author2021 --year 2021 --doi 10.1000/example
 ```
-5) In the folder with your script there should be a tsv file with all metadata on the bioproject with NCBI. This data will be needed to fill in the final tables *common_samples* and *common_libraries*
+The script contacts NCBI (SRA, BioSample), so it needs an internet connection; it takes about 10 seconds per 20 runs.
 
-![Image alt](/assets/image/instructions/metadata.png)
+5) In the folder with your script there will be three tsv files:
+   - `PRJNA729662_raw.tsv` - everything NCBI reports about every run and its BioSample (use it to look up details);
+   - `PRJNA729662_libraries.tsv` - draft rows for *common_libraries* (one row per run: accessions, instrument, layout, strategy, read count, download link, MD5, size are already filled);
+   - `PRJNA729662_samples.tsv` - draft rows for *common_samples* (one row per sample: accessions, sample name, coordinates, country and collection year are taken from BioSample when they are there).
+
+   At the end the script lists the columns that are still empty or do not match the allowed values. Everything that NCBI cannot know has to be filled in from the article: physico-chemical parameters, `feature`, `material`, `study_primary_focus`, `study_process`, `oil_reservoir`, `oil_wells`, the library preparation details, and `amplicon_variable_region`. Use `None` where a value cannot apply in principle and `unknown` where it exists but the article does not report it. Check the pre-filled values too: for example, the instrument model reported by NCBI can differ from the one in the article, and sample names in the article can differ from the BioSample names (`sample_name` in both tables of one study must be the same).
 
 6) Go to excel or google tables to generate the tables *common_samples* and *common_libraries*
 
