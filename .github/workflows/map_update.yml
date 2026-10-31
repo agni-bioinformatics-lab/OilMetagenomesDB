@@ -1,54 +1,49 @@
 name: Updating the map
 
-# Trigger this workflow on push
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
     paths:
       - 'common_samples/common_samples.tsv'
+      - 'scripts/map.py'
+      - '.github/workflows/map_update.yml'
 
 jobs:
-
-  # Job to update map visualization and commit the changes
   update_map:
     runs-on: ubuntu-latest
-    
+
     steps:
-
-      # Checkout to access workflow
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
-      # Install required system dependencies
-      - name: Install system dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libgeos-dev
-
-      # Configure the Python environment 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
-          python-version: 3.8
+          python-version: '3.12'
 
-      # Install required dependencies
+      # Cartopy and Shapely wheels ship their own GEOS. Installing libgeos
+      # from apt loads a second copy and segfaults on current Ubuntu runners.
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pandas matplotlib cartopy
+          pip install "pandas>=2" "matplotlib>=3.8" "cartopy>=0.23" "shapely>=2" "pyproj"
 
-      # Run script updating the map
       - name: Run map visualization script
-        run: |
-          xvfb-run python scripts/map.py
+        env:
+          MPLBACKEND: Agg
+        run: python scripts/map.py
 
-      # Commit and push updates
       - name: Commit and push changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git remote set-url origin https://${{secrets.MAP_METAGENOME}}@github.com/agni-bioinformatics-lab/OilMetagenomesDB.git
           git add README.md assets/image/git_img_map.png
-          git commit -m "Update map visualization"
-          git push
+          if git diff --cached --quiet; then
+            echo "Map is already up to date"
+          else
+            git commit -m "Update map visualization"
+            git push
+          fi
