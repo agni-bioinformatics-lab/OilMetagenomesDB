@@ -34,12 +34,12 @@ The script contacts NCBI (SRA, BioSample), so it needs an internet connection; i
 
 For the *common_samples* table
 
-project_name | publication_year | publication_doi |oil_reservoir | oil_wells | latitude | longitude | geo_loc_name | study_primary_focus | study_process | depth |temp | pH | salinity | API | NO3<sup>-</sup>| PO<sub>4</sub><sup>3-</sup> | SO<sub>4</sub><sup>2-</sup>  | Ca<sup>2+</sup> | Mg<sup>2+</sup> | Na<sup>+</sup> | К<sup>+</sup> | Cl<sup>-</sup> | HCO<sub>3</sub><sup>-</sup> | Acetate | sample_name |feature | material | collection_date | archive | archive_project | archive_accession
+project_name | publication_year | publication_doi | oil_reservoir | oil_wells | latitude | longitude | geo_loc_name | study_primary_focus | study_process | depth | temp | pH | salinity | API | NO3- | PO43- | SO42- | Ca2+ | Mg2+ | Na+ | K+ | Cl- | HCO3- | acetate | sample_name | feature | material | collection_date | archive | archive_project | archive_accession
 ---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---
 
 For the *common_libraries* table
 
-project_name | publication_year | publication_doi | sample_name | archive | archive_project | archive_sample_accession | library_name | strand_type | library_polymerase | library_treatment | library_concentration | PCR_cycle_count | instrument_model | library_layout | library_strategy  | amplicon_variable_region | read_count | archive_data_accession | download_links | download_md5s | download_sizes
+project_name | publication_year | publication_doi | sample_name | archive | archive_project | archive_accession | library_name | strand_type | library_polymerase | library_treatment | library_concentration | PCR_cycle_count | instrument_model | library_layout | library_strategy  | amplicon_variable_region | read_count | archive_data_accession | download_links | download_md5s | download_sizes
 ---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---
 
 9) Fill in the appropriate columns with the data
