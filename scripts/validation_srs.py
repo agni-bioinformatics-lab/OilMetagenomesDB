@@ -1,5 +1,5 @@
 import pandas as pd
-import os, sys
+import argparse, os, sys
 
 # Read the DataFrame used for comparison purposes
 def read_dataframe_for_compare(path):
@@ -28,11 +28,22 @@ def check_srs(samples, libraries):
     else:
         return False, "\n".join(error_messages)
 
+# Command-line arguments; the CI environment variables are used as defaults
+def parse_args(argv=None):
+    parser = argparse.ArgumentParser(
+        description="Check that archive_accession values of the two tables match each other.")
+    parser.add_argument("--samples", default=os.environ.get("SAMPLES_PATH", "common_samples/common_samples.tsv"),
+                        help="samples table (default: $SAMPLES_PATH or %(default)s)")
+    parser.add_argument("--libraries", default=os.environ.get("LIBRARIES_PATH", "common_libraries/common_libraries.tsv"),
+                        help="libraries table (default: $LIBRARIES_PATH or %(default)s)")
+    return parser.parse_args(argv)
+
 # Main execution
-def main():
+def main(argv=None):
+    args = parse_args(argv)
     # Read the SRS column to validation
-    df_s = read_dataframe_for_compare(os.environ["SAMPLES_PATH"])
-    df_l = read_dataframe_for_compare(os.environ["LIBRARIES_PATH"])
+    df_s = read_dataframe_for_compare(args.samples)
+    df_l = read_dataframe_for_compare(args.libraries)
     valid, message = check_srs(df_s['archive_accession'], df_l['archive_accession'])
     
     # Print the validation results

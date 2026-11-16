@@ -59,6 +59,31 @@ streamlit run app/streamlit_app.py
 
   ![git_gif_guide_3](assets/gif/git_gif_guide_3.gif)
 </details>
+
+<details>
+  <summary>🧪Click to run the validation locally</summary>
+
+The checks that run on pull requests can also be run on your computer before you open one (Python 3):
+
+```bash
+python -m venv .venv
+.venv/bin/pip install -r requirements.txt
+
+# Every row of both tables against the JSON schemas, duplicates, unique columns, archive_accession links
+.venv/bin/python scripts/validate_local.py
+
+# The pull-request checks: old rows unchanged, appended rows valid.
+# --base-ref is the branch with the accepted tables (e.g. main, or upstream/main in a fork)
+.venv/bin/python scripts/validation_samples.py --base-ref upstream/main
+.venv/bin/python scripts/validation_libraries.py --base-ref upstream/main
+.venv/bin/python scripts/validation_srs.py
+
+# Tests of the validation scripts
+.venv/bin/python -m pytest tests
+```
+
+Run `python scripts/validation_samples.py --help` for all options (`--table`, `--schemas`, `--base-file`).
+</details>
  
 If you find dataset validation errors or think of a new dataset validation, please create an [issue](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/issues) in our GitHub repository. 
 

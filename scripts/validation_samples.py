@@ -1,5 +1,5 @@
 import pandas as pd
-import os, sys, json, subprocess
+import argparse, io, os, sys, json, subprocess
 from jsonschema import validate, ValidationError
 from collections import defaultdict
 
@@ -11,10 +11,25 @@ def read_dataframe_for_compare(path):
 def read_dataframe_for_validation(path):
     return pd.read_csv(path, sep="\t", dtype=str, keep_default_na=False)
 
-# Fetch and checkout a specific branch in git
-def fetch_and_checkout_branch(branch_name, path):
-    subprocess.run(["git", "fetch", "origin", branch_name])
-    subprocess.run(["git", "checkout", "FETCH_HEAD", "--", path])
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Default directory with the JSON schemas: $GITHUB_WORKSPACE in CI, the repository root otherwise
+def default_schemas_dir(name):
+    return os.path.join(os.environ.get("GITHUB_WORKSPACE", REPO_ROOT), name)
+
+# Read the base version of the table without touching the working tree:
+# from a file, from a git ref, or (default, as in CI) from origin/main after a fetch
+def read_base_dataframe(path, base_ref=None, base_file=None):
+    if base_file:
+        return read_dataframe_for_compare(base_file)
+    if base_ref is None:
+        subprocess.run(["git", "fetch", "origin", "main"], check=True)
+        base_ref = "FETCH_HEAD"
+    content = subprocess.run(
+        ["git", "show", f"{base_ref}:./{os.path.relpath(path)}"],
+        check=True, capture_output=True, text=True, encoding="utf-8",
+    ).stdout
+    return read_dataframe_for_compare(io.StringIO(content))
 
 # Compare two DataFrames and return the differences
 def compare_dataframes(df1, df2):
@@ -55,16 +70,32 @@ def validate_new_rows(new_rows, schemas_path, starting_index):
             validation_results[column] = column_results
     return validation_results, error_value
 
-# Main execution
-def main():
-    # Read the DataFrame for PR and validation
-    SAMPLES_PATH = os.environ["SAMPLES_PATH"]
-    df_pr = read_dataframe_for_compare(SAMPLES_PATH)
-    df_pr_ = read_dataframe_for_validation(SAMPLES_PATH)
+# Command-line arguments; the CI environment variables are used as defaults
+def parse_args(argv=None):
+    parser = argparse.ArgumentParser(
+        description="Check that old rows of the samples table are unchanged and validate the appended rows against the JSON schemas.")
+    parser.add_argument("--table", default=os.environ.get("SAMPLES_PATH", "common_samples/common_samples.tsv"),
+                        help="samples table to check (default: $SAMPLES_PATH or %(default)s)")
+    parser.add_argument("--schemas", default=default_schemas_dir("schemas_samples"),
+                        help="directory with one JSON schema per column (default: %(default)s)")
+    base = parser.add_mutually_exclusive_group()
+    base.add_argument("--base-ref",
+                      help="git ref with the accepted version of the table, e.g. main or upstream/main "
+                           "(read with git show, no fetch); default: fetch origin main")
+    base.add_argument("--base-file",
+                      help="file with the accepted version of the table (no git access)")
+    return parser.parse_args(argv)
 
-    # Fetch and checkout to main branch, then read the fork's DataFrame
-    fetch_and_checkout_branch("main", SAMPLES_PATH)
-    df_fork = read_dataframe_for_compare(SAMPLES_PATH)
+# Main execution
+def main(argv=None):
+    args = parse_args(argv)
+
+    # Read the DataFrame for PR and validation
+    df_pr = read_dataframe_for_compare(args.table)
+    df_pr_ = read_dataframe_for_validation(args.table)
+
+    # Read the accepted (base branch) version of the table
+    df_fork = read_base_dataframe(args.table, args.base_ref, args.base_file)
 
     # Compare PR's and fork's DataFrame
     comparison_result = compare_dataframes(df_pr, df_fork)
@@ -88,7 +119,7 @@ def main():
     print("Content of new_rows:\n", new_rows)
 
     # Validate the new rows using schemas
-    schemas_path = os.path.join(os.environ["GITHUB_WORKSPACE"], 'schemas_samples')
+    schemas_path = args.schemas
     validation_results, error_value = validate_new_rows(new_rows, schemas_path, df_fork.shape[0])
 
     # Print the validation results
